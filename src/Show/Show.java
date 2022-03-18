@@ -21,7 +21,7 @@ public final class Show {
      public String[][] cargar() throws SQLException {
         
          
-         String sql = "SELECT *FROM contacto";
+         String sql = "SELECT *FROM data";
  
          Connection conect;
          int count = 0;

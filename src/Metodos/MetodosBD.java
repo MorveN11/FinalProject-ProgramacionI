@@ -21,7 +21,7 @@ int resultado = 0;
 
 Connection con = null;
 
-String SSQL = "INSERT INTO contacto (nombres, apellidos, email, celular, sexo, username, password) "
+String SSQL = "INSERT INTO data (nombres, apellidos, email, celular, sexo, username, password) "
             + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 
@@ -79,7 +79,7 @@ public static String SearchUser(String username) {
         
         
         conexion = ConexionMySQL.Conectar();
-        String searchNames = ("SELECT nombres, apellidos FROM contacto WHERE username = '" + username + "'");
+        String searchNames = ("SELECT nombres, apellidos FROM data WHERE username = '" + username + "'");
          preparedString = conexion.prepareStatement(searchNames);
          result = preparedString.executeQuery();
          
@@ -116,7 +116,7 @@ public static String searchRegistUser (String username, String password) {
         
         conexion = ConexionMySQL.Conectar();
         
-        String searchUserString = ("SELECT nombres, username,  password FROM contacto "
+        String searchUserString = ("SELECT nombres, username,  password FROM data "
                 + "WHERE username = '"+username+"'  && password = '"+ password +"'");
         
         preparedString = conexion.prepareStatement(searchUserString);

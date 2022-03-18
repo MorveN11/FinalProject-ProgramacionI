@@ -14,12 +14,15 @@ import org.apache.commons.dbcp.BasicDataSource;
 public class Pool {
     
     public DataSource dataSource;
-    
-    public String db = "bdcontactos";
-    public String url = "jdbc:mysql://localhost/"+db;
-    public String user = "root";
-    public String pass = "";
-    
+
+    public String dbServer = "mysql-72602-0.cloudclusters.net"; // change it to your database server name
+    public int dbPort = 12447; // change it to your database server port
+    public String dbName = "UsersLogin";
+    public String userName = "admin";
+    public String password = "Jye0g2UG";
+    public String url = "jdbc:mysql://" + dbServer + ":" + dbPort + "/" + dbName + "?characterEncoding=utf8";
+
+
     public Pool() {
         
         inicializaDataSource();
@@ -33,8 +36,8 @@ public class Pool {
             BasicDataSource basicDataSource = new BasicDataSource();
             
             basicDataSource.setDriverClassName("org.gjt.mm.mysql.Driver");
-            basicDataSource.setUsername(user);
-            basicDataSource.setPassword(pass);
+            basicDataSource.setUsername(userName);
+            basicDataSource.setPassword(password);
             basicDataSource.setUrl(url);
             basicDataSource.setMaxActive(50);
             
