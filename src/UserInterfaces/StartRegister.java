@@ -5,9 +5,8 @@
 package UserInterfaces;
 
 
-import Utilities.LinkData;
-
 import java.util.Objects;
+import DataBase.DataBase;
 
 /**
  *
@@ -187,11 +186,11 @@ public class StartRegister extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginUserActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-            LinkData.Names = txtNombrecontacto.getText();
-            LinkData.LastNames = txtApellidoscontacto.getText();
-            LinkData.Email = txtEmail.getText();
-            LinkData.CellPhone = txtCelular.getText();
-            LinkData.Gender = Objects.requireNonNull(cboxSexo.getSelectedItem()).toString();
+            DataBase.Names = txtNombrecontacto.getText();
+            DataBase.LastNames = txtApellidoscontacto.getText();
+            DataBase.Email = txtEmail.getText();
+            DataBase.CellPhone = txtCelular.getText();
+            DataBase.Gender = Objects.requireNonNull(cboxSexo.getSelectedItem()).toString();
             
             FinalRegister ver = new FinalRegister();
             ver.setVisible(true);

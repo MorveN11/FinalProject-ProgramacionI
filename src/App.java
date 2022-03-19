@@ -1,10 +1,10 @@
-import Utilities.DataBaseFunctions;
+import DataBase.DataBase;
 
 
 public class App {
     public static void main(String[] args) {
 
-        DataBaseFunctions.show();
+        DataBase.showUsers();
 
     }
 }

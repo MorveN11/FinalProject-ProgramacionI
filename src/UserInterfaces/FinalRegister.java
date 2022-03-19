@@ -4,8 +4,8 @@
  */
 package UserInterfaces;
 
-import Utilities.LinkData;
-import DataBaseFunctions.Verifiers;
+import DataBase.DataBase;
+import DataBase.Research;
 import javax.swing.JOptionPane;
 
 /**
@@ -104,12 +104,10 @@ public class FinalRegister extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsernameActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            Verifiers metodosbd = new Verifiers();
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         
-        
-            int exito =  metodosbd.Guardar(LinkData.Names, LinkData.LastNames, LinkData.Email, LinkData.CellPhone,
-                    LinkData.Gender, txtUsername.getText(), txtPassword.getText());
+            int exito =  Research.saveData(DataBase.Names, DataBase.LastNames, DataBase.Email, DataBase.CellPhone,
+                    DataBase.Gender, txtUsername.getText(), txtPassword.getText());
         
             if(exito>0){
 
@@ -121,8 +119,8 @@ public class FinalRegister extends javax.swing.JFrame {
                    JOptionPane.showMessageDialog(null, "Los datos no se pudieron guardar\n"
                                  + "Inténtelo nuevamente", "Error en la operación", JOptionPane.ERROR_MESSAGE); 
   
-        }        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        }
+    }
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:

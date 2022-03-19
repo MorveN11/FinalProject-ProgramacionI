@@ -1,7 +1,6 @@
-package Utilities;
+package DataBase;
 
 
-import DataBaseFunctions.ConnectionMySQL;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -9,19 +8,25 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 
-public final class DataBaseFunctions {
+public class DataBase {
 
-     public static String[][] table;
+    public static String Names;
+    public static String LastNames;
+    public static String Email;
+    public static String CellPhone;
+    public static String Gender;
+    public static String[][] table;
 
-     public static void save() {
 
-         String sql = "SELECT *FROM Data";
-         Connection connection;
-         int fCount = 0;
-         
-         try {
+    public static void searchUsers() {
 
-             connection = ConnectionMySQL.Conectar();
+        String sql = "SELECT *FROM Data";
+        Connection connection;
+        int fCount = 0;
+
+        try {
+
+             connection = SQL.Connect();
              Statement st = connection.createStatement();
              ResultSet rs = st.executeQuery(sql);
              while (rs.next()){
@@ -42,7 +47,7 @@ public final class DataBaseFunctions {
 
          try {
 
-             connection = ConnectionMySQL.Conectar();
+             connection = SQL.Connect();
              Statement st = connection.createStatement();
              ResultSet rs = st.executeQuery(sql);
 
@@ -68,9 +73,9 @@ public final class DataBaseFunctions {
          }
      }
 
-     public static void show() {
+     public static void showUsers() {
 
-         save();
+         searchUsers();
 
          for (String[] line : table) {
 
