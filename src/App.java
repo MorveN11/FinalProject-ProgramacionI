@@ -1,5 +1,5 @@
 
-import Show.Show;
+import Utilities.ShowDataBase;
 import java.sql.SQLException;
 
 /*
@@ -13,7 +13,7 @@ import java.sql.SQLException;
  */
 public class App {
     public static void main(String[] args) throws SQLException {
-        Show rs = new Show();
+        ShowDataBase rs = new ShowDataBase();
         String[][] registros = rs.cargar();
         
       
