@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class App {
     public static void main(String[] args) throws SQLException {
         ShowDataBase rs = new ShowDataBase();
-        String[][] registros = rs.cargar();
+        String[][] registros = rs.showData();
         
       
         for (String[] registro : registros) {

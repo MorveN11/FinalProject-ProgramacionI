@@ -18,28 +18,26 @@ public final class ShowDataBase {
      public ShowDataBase() throws SQLException {
          
      }
-     public String[][] cargar() throws SQLException {
+     public String[][] showData() throws SQLException {
         
          
          String sql = "SELECT *FROM data";
  
-         Connection conect;
-         int count = 0;
+         Connection connection;
+         int fCount = 0;
          
          try {
              
-             conect = ConnectionMySQL.Conectar();
-             Statement st = (Statement) conect.createStatement();
+             connection = ConnectionMySQL.Conectar();
+             Statement st = (Statement) connection.createStatement();
              ResultSet rs = st.executeQuery(sql);
              
              while (rs.next()){
            
-             count = count +1;
-           
-             
+             fCount += 1;
              
          }
-         conect.close();
+         connection.close();
             
          }catch(SQLException e) {
              
@@ -47,12 +45,12 @@ public final class ShowDataBase {
                     
                  }
          
-         String[][] result = new String[count][7];
+         String[][] result = new String[fCount][7];
          
          int aux = 0;
          try {
-             conect = ConnectionMySQL.Conectar();
-             Statement st = (Statement) conect.createStatement();
+             connection = ConnectionMySQL.Conectar();
+             Statement st = (Statement) connection.createStatement();
              ResultSet rs = st.executeQuery(sql);
             
              
@@ -76,7 +74,7 @@ public final class ShowDataBase {
                  
              }
 
-             conect.close();
+             connection.close();
              
              
          } catch(SQLException e) {
