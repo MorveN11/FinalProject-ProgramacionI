@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package DataBaseFunctions;
 
 import java.sql.Connection;
@@ -9,10 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author fundacion
- */
+
 public class ConnectionMySQL {
 
     public static String dbServer = "mysql-72602-0.cloudclusters.net"; // change it to your database server name
@@ -21,9 +14,7 @@ public class ConnectionMySQL {
     public static String userName = "admin";
     public static String password = "Jye0g2UG";
     public static String url = "jdbc:mysql://" + dbServer + ":" + dbPort + "/" + dbName+"?characterEncoding=utf8";
-   
-    
-    
+
     public static Connection Conectar() throws SQLException {
 
         Connection conexion = null;
@@ -31,15 +22,13 @@ public class ConnectionMySQL {
         try{
 
             Class.forName("org.gjt.mm.mysql.Driver");
+            conexion = DriverManager.getConnection(url, userName, password);
 
-            conexion = (Connection) DriverManager.getConnection(url, userName, password);
-
-        }catch(ClassNotFoundException | SQLException ex) {
+        } catch(ClassNotFoundException | SQLException ex) {
 
             JOptionPane.showMessageDialog(null, ex);
 
         }
-
         return conexion;
     }
 
