@@ -19,7 +19,7 @@ public class DataBase {
     public static String CellPhone;
     public static String Gender;
 
-    public static Connection Connect() throws SQLException {
+    public static Connection connect() throws SQLException {
 
         Connection connection = null;
 
@@ -45,7 +45,7 @@ public class DataBase {
 
         try {
 
-            connection = DataBase.Connect();
+            connection = connect();
 
             try(PreparedStatement searchUsersData = connection.prepareStatement(usersData)) {
 
@@ -77,14 +77,14 @@ public class DataBase {
         return resultSaveData;
     }
 
-    public static String SearchUser(String userName) {
+    public static String searchUser(String userName) {
 
         String searchUser = null;
         Connection connection;
 
         try {
 
-            connection = DataBase.Connect();
+            connection = connect();
             String usersData = ("SELECT Names, LastNames FROM Data WHERE UserName = '" + userName + "'");
             PreparedStatement searchUserName = connection.prepareStatement(usersData);
             ResultSet resultSearch = searchUserName.executeQuery();
@@ -111,7 +111,7 @@ public class DataBase {
 
         try {
 
-            connection = DataBase.Connect();
+            connection = connect();
             String usersData = ("SELECT Names, UserName, Password FROM Data "
                     + "WHERE UserName = '"+username+"'  && Password = '"+ password +"'");
             PreparedStatement searchUser = connection.prepareStatement(usersData);
@@ -133,7 +133,7 @@ public class DataBase {
         return resultSearch;
     }
 
-    public static void searchUsers() {
+    public static void searchDataUsers() {
 
         String usersData = "SELECT *FROM Data";
         Connection connection;
@@ -141,7 +141,7 @@ public class DataBase {
 
         try {
 
-            connection = DataBase.Connect();
+            connection = connect();
             PreparedStatement searchUsersData = connection.prepareStatement(usersData);
             ResultSet resultSearch = searchUsersData.executeQuery();
 
@@ -159,7 +159,7 @@ public class DataBase {
 
         try {
 
-            connection = DataBase.Connect();
+            connection = connect();
             PreparedStatement searchUsersData = connection.prepareStatement(usersData);
             ResultSet resultSearch = searchUsersData.executeQuery();
 
@@ -182,8 +182,8 @@ public class DataBase {
         }
     }
 
-    public static void showUsers() {
-        searchUsers();
+    public static void showDataUsers() {
+        searchDataUsers();
 
         for (String[] line : table) {
             System.out.print("[");

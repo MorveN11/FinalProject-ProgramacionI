@@ -105,7 +105,7 @@ public class Login extends javax.swing.JFrame {
                 show.nameShow.setText("Administrador");
                 this.dispose();
             } else if (searchUser.equals("Found User")) {
-                String searchUsername = DataBase.SearchUser(txtUser.getText());
+                String searchUsername = DataBase.searchUser(txtUser.getText());
                 JOptionPane.showMessageDialog(this, "Bienvenid@ \n" +searchUsername+" AEA");
                 Info show = new Info();
                 show.setVisible(true);
