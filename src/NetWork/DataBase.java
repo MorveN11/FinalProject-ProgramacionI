@@ -1,0 +1,199 @@
+package NetWork;
+
+import java.sql.*;
+import javax.swing.JOptionPane;
+
+
+public class DataBase {
+
+    public static String[][] table;
+    public static int dbPort = 12447;
+    public static String dbServer = "mysql-72602-0.cloudclusters.net";
+    public static String dbName = "UsersLogin";
+    public static String userName = "admin";
+    public static String password = "Jye0g2UG";
+    public static String url = "jdbc:mysql://" + dbServer + ":" + dbPort + "/" + dbName+"?characterEncoding=utf8";
+    public static String Names;
+    public static String LastNames;
+    public static String Email;
+    public static String CellPhone;
+    public static String Gender;
+
+    public static Connection Connect() throws SQLException {
+
+        Connection connection = null;
+
+        try {
+
+            Class.forName("org.gjt.mm.mysql.Driver");
+            connection = DriverManager.getConnection(url, userName, password);
+
+        }catch(ClassNotFoundException | SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return connection;
+    }
+
+    public static int saveData(String txtNames, String txtLastNames, String txtEmail, String txtCellPhone,
+                               String txtGender, String txtUsername, String txtPassword) {
+
+        int resultSaveData = 0;
+        Connection connection = null;
+        String usersData = "INSERT INTO Data (Names, LastNames, Email, CellPhone, Gender, UserName, Password) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        try {
+
+            connection = DataBase.Connect();
+
+            try(PreparedStatement searchUsersData = connection.prepareStatement(usersData)) {
+
+                searchUsersData.setString(1, txtNames);
+                searchUsersData.setString(2, txtLastNames);
+                searchUsersData.setString(3, txtEmail);
+                searchUsersData.setString(4, txtCellPhone);
+                searchUsersData.setString(5, txtGender);
+                searchUsersData.setString(6, txtUsername);
+                searchUsersData.setString(7, txtPassword);
+                resultSaveData = searchUsersData.executeUpdate();
+            }
+        }catch(SQLException e) {
+
+            JOptionPane.showMessageDialog(null, "Error trying to store information:\n"
+                    + e, "Operation Failed", JOptionPane.ERROR_MESSAGE);
+        }finally {
+
+            try {
+                if(connection!=null) {
+                    connection.close();
+                }
+            }catch(SQLException ex) {
+
+                JOptionPane.showMessageDialog(null, "Error when trying to close the connection:\n"
+                        + ex, "Operation Failed", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        return resultSaveData;
+    }
+
+    public static String SearchUser(String userName) {
+
+        String searchUser = null;
+        Connection connection;
+
+        try {
+
+            connection = DataBase.Connect();
+            String usersData = ("SELECT Names, LastNames FROM Data WHERE UserName = '" + userName + "'");
+            PreparedStatement searchUserName = connection.prepareStatement(usersData);
+            ResultSet resultSearch = searchUserName.executeQuery();
+
+            if(resultSearch.next()) {
+
+                String names = resultSearch.getString("Names");
+                String lastNames = resultSearch.getString("LastNames");
+                searchUser = (names +" "+ lastNames);
+            }
+            connection.close();
+
+        } catch(SQLException e) {
+
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return searchUser;
+    }
+
+    public static String searchRegisteredUser(String username, String password) {
+
+        String resultSearch = null;
+        Connection connection;
+
+        try {
+
+            connection = DataBase.Connect();
+            String usersData = ("SELECT Names, UserName, Password FROM Data "
+                    + "WHERE UserName = '"+username+"'  && Password = '"+ password +"'");
+            PreparedStatement searchUser = connection.prepareStatement(usersData);
+            ResultSet resultSearchUser = searchUser.executeQuery();
+
+            if(resultSearchUser.next()) {
+
+                resultSearch = "Found User";
+            }else {
+
+                resultSearch = "User not Found";
+            }
+            connection.close();
+
+        }catch(SQLException e) {
+
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return resultSearch;
+    }
+
+    public static void searchUsers() {
+
+        String usersData = "SELECT *FROM Data";
+        Connection connection;
+        int fCount = 0;
+
+        try {
+
+            connection = DataBase.Connect();
+            PreparedStatement searchUsersData = connection.prepareStatement(usersData);
+            ResultSet resultSearch = searchUsersData.executeQuery();
+
+            while (resultSearch.next()){
+                fCount += 1;
+            }
+            connection.close();
+
+        }catch(SQLException e) {
+
+            JOptionPane.showMessageDialog(null, e);
+        }
+        table = new String[fCount][7];
+        fCount = 0;
+
+        try {
+
+            connection = DataBase.Connect();
+            PreparedStatement searchUsersData = connection.prepareStatement(usersData);
+            ResultSet resultSearch = searchUsersData.executeQuery();
+
+            while (resultSearch.next()) {
+
+                table[fCount][0] = resultSearch.getString("Names");
+                table[fCount][1] = resultSearch.getString("LastNames");
+                table[fCount][2] = resultSearch.getString("Email");
+                table[fCount][3] = resultSearch.getString("CellPhone");
+                table[fCount][4] = resultSearch.getString("Gender");
+                table[fCount][5] = resultSearch.getString("UserName");
+                table[fCount][6] = resultSearch.getString("Password");
+                fCount += 1;
+            }
+            connection.close();
+
+        }catch(SQLException e) {
+
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
+    public static void showUsers() {
+        searchUsers();
+
+        for (String[] line : table) {
+            System.out.print("[");
+            for (int i = 0; i < line.length; i++) {
+                System.out.print(line[i]);
+                if (i != line.length - 1) {
+                    System.out.print(", ");
+                }
+            }
+            System.out.println("]");
+        }
+    }
+}

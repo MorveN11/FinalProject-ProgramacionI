@@ -4,8 +4,7 @@
  */
 package UserInterfaces;
 
-import DataBase.DataBase;
-import DataBase.Research;
+import NetWork.DataBase;
 import javax.swing.JOptionPane;
 
 /**
@@ -106,7 +105,7 @@ public class FinalRegister extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         
-            int exito =  Research.saveData(DataBase.Names, DataBase.LastNames, DataBase.Email, DataBase.CellPhone,
+            int exito =  DataBase.saveData(DataBase.Names, DataBase.LastNames, DataBase.Email, DataBase.CellPhone,
                     DataBase.Gender, txtUsername.getText(), txtPassword.getText());
         
             if(exito>0){

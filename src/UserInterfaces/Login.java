@@ -4,7 +4,7 @@
  */
 package UserInterfaces;
 
-import DataBase.Research;
+import NetWork.DataBase;
 import javax.swing.JOptionPane;
 
 /**
@@ -97,15 +97,15 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-            String searchUser = Research.searchRegisteredUser(txtUser.getText(), txtPassword.getText());
+            String searchUser = DataBase.searchRegisteredUser(txtUser.getText(), txtPassword.getText());
             
             if (txtUser.getText().equals("root")  && txtPassword.getText().equals("root")) {
                 JOptionPane.showMessageDialog(this, "Bienvenido iniciaste sesion como Administrador");
                 Info show = new Info();
                 show.nameShow.setText("Administrador");
                 this.dispose();
-            } else if (searchUser.equals("usuario encontrado")) {
-                String searchUsername = Research.SearchUser(txtUser.getText());
+            } else if (searchUser.equals("Found User")) {
+                String searchUsername = DataBase.SearchUser(txtUser.getText());
                 JOptionPane.showMessageDialog(this, "Bienvenid@ \n" +searchUsername+" AEA");
                 Info show = new Info();
                 show.setVisible(true);

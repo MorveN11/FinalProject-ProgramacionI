@@ -5,8 +5,9 @@
 package UserInterfaces;
 
 
+import NetWork.DataBase;
+
 import java.util.Objects;
-import DataBase.DataBase;
 
 /**
  *
