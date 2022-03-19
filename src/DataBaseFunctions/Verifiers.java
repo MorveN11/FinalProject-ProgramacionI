@@ -20,7 +20,7 @@ public class Verifiers {
 
         Connection con = null;
 
-        String SSQL = "INSERT INTO data (nombres, apellidos, email, celular, sexo, username, password) "
+        String SSQL = "INSERT INTO Data (Names, LastNames, Email, CellPhone, Gender, UserName, Password) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try {
@@ -68,14 +68,14 @@ public class Verifiers {
         try {
 
             conexion = ConnectionMySQL.Conectar();
-            String searchNames = ("SELECT nombres, apellidos FROM data WHERE username = '" + username + "'");
+            String searchNames = ("SELECT Names, LastNames FROM Data WHERE UserName = '" + username + "'");
             preparedString = conexion.prepareStatement(searchNames);
             result = preparedString.executeQuery();
 
             if (result.next()){
 
-                String name = result.getString("nombres");
-                String lastName = result.getString("apellidos");
+                String name = result.getString("Names");
+                String lastName = result.getString("LastNames");
                 searchUser = (name +" "+ lastName);
             }
 
@@ -98,8 +98,8 @@ public class Verifiers {
 
             conexion = ConnectionMySQL.Conectar();
         
-            String searchUserString = ("SELECT nombres, username,  password FROM data "
-                    + "WHERE username = '"+username+"'  && password = '"+ password +"'");
+            String searchUserString = ("SELECT Names, UserName, Password FROM Data "
+                    + "WHERE UserName = '"+username+"'  && Password = '"+ password +"'");
 
             preparedString = conexion.prepareStatement(searchUserString);
             result = preparedString.executeQuery();

@@ -6,6 +6,9 @@ package UserInterfaces;
 
 
 import Utilities.LinkData;
+
+import java.util.Objects;
+
 /**
  *
  * @author fundacion
@@ -184,8 +187,11 @@ public class StartRegister extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginUserActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-            LinkData recolector = new LinkData(txtNombrecontacto.getText(), txtApellidoscontacto.getText(), 
-               txtEmail.getText(), txtCelular.getText(), cboxSexo.getSelectedItem().toString());
+            LinkData.Names = txtNombrecontacto.getText();
+            LinkData.LastNames = txtApellidoscontacto.getText();
+            LinkData.Email = txtEmail.getText();
+            LinkData.CellPhone = txtCelular.getText();
+            LinkData.Gender = Objects.requireNonNull(cboxSexo.getSelectedItem()).toString();
             
             FinalRegister ver = new FinalRegister();
             ver.setVisible(true);

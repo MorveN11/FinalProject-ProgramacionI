@@ -15,7 +15,7 @@ public final class DataBaseFunctions {
 
      public static void save() {
 
-         String sql = "SELECT *FROM data";
+         String sql = "SELECT *FROM Data";
          Connection connection;
          int fCount = 0;
          
@@ -48,13 +48,13 @@ public final class DataBaseFunctions {
 
              while (rs.next()) {
 
-                 table[fCount][0] = rs.getString("nombres");
-                 table[fCount][1] = rs.getString("apellidos");
-                 table[fCount][2] = rs.getString("email");
-                 table[fCount][3] = rs.getString("celular");
-                 table[fCount][4] = rs.getString("sexo");
-                 table[fCount][5] = rs.getString("username");
-                 table[fCount][6] = rs.getString("password");
+                 table[fCount][0] = rs.getString("Names");
+                 table[fCount][1] = rs.getString("LastNames");
+                 table[fCount][2] = rs.getString("Email");
+                 table[fCount][3] = rs.getString("CellPhone");
+                 table[fCount][4] = rs.getString("Gender");
+                 table[fCount][5] = rs.getString("UserName");
+                 table[fCount][6] = rs.getString("Password");
                  fCount += 1;
 
              }

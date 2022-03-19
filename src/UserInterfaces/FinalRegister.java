@@ -108,8 +108,8 @@ public class FinalRegister extends javax.swing.JFrame {
             Verifiers metodosbd = new Verifiers();
         
         
-            int exito =  metodosbd.Guardar(LinkData.nombres, LinkData.apellidos, LinkData.email, LinkData.celular, LinkData.sexo, 
-               txtUsername.getText(), txtPassword.getText());
+            int exito =  metodosbd.Guardar(LinkData.Names, LinkData.LastNames, LinkData.Email, LinkData.CellPhone,
+                    LinkData.Gender, txtUsername.getText(), txtPassword.getText());
         
             if(exito>0){
 
