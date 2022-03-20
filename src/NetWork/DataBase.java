@@ -13,11 +13,6 @@ public class DataBase {
     public static String userName = "admin";
     public static String password = "Jye0g2UG";
     public static String url = "jdbc:mysql://" + dbServer + ":" + dbPort + "/" + dbName+"?characterEncoding=utf8";
-    public static String Name;
-    public static String LastName;
-    public static String Email;
-    public static String CellPhone;
-    public static String Gender;
 
     public static Connection connect() throws SQLException {
 
