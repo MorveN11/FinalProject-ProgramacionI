@@ -13,8 +13,8 @@ public class DataBase {
     public static String userName = "admin";
     public static String password = "Jye0g2UG";
     public static String url = "jdbc:mysql://" + dbServer + ":" + dbPort + "/" + dbName+"?characterEncoding=utf8";
-    public static String Names;
-    public static String LastNames;
+    public static String Name;
+    public static String LastName;
     public static String Email;
     public static String CellPhone;
     public static String Gender;
@@ -40,7 +40,7 @@ public class DataBase {
 
         int resultSaveData = 0;
         Connection connection = null;
-        String usersData = "INSERT INTO Data (Names, LastNames, Email, CellPhone, Gender, UserName, Password) "
+        String usersData = "INSERT INTO Data (Name, LastName, Email, CellPhone, Gender, UserName, Password) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try {
@@ -85,14 +85,14 @@ public class DataBase {
         try {
 
             connection = connect();
-            String usersData = ("SELECT Names, LastNames FROM Data WHERE UserName = '" + userName + "'");
+            String usersData = ("SELECT Name, LastName FROM Data WHERE UserName = '" + userName + "'");
             PreparedStatement searchUserName = connection.prepareStatement(usersData);
             ResultSet resultSearch = searchUserName.executeQuery();
 
             if(resultSearch.next()) {
 
-                String names = resultSearch.getString("Names");
-                String lastNames = resultSearch.getString("LastNames");
+                String names = resultSearch.getString("Name");
+                String lastNames = resultSearch.getString("LastName");
                 searchUser = (names +" "+ lastNames);
             }
             connection.close();
@@ -112,7 +112,7 @@ public class DataBase {
         try {
 
             connection = connect();
-            String usersData = ("SELECT Names, UserName, Password FROM Data "
+            String usersData = ("SELECT Name, UserName, Password FROM Data "
                     + "WHERE UserName = '"+username+"'  && Password = '"+ password +"'");
             PreparedStatement searchUser = connection.prepareStatement(usersData);
             ResultSet resultSearchUser = searchUser.executeQuery();
@@ -165,8 +165,8 @@ public class DataBase {
 
             while (resultSearch.next()) {
 
-                table[fCount][0] = resultSearch.getString("Names");
-                table[fCount][1] = resultSearch.getString("LastNames");
+                table[fCount][0] = resultSearch.getString("Name");
+                table[fCount][1] = resultSearch.getString("LastName");
                 table[fCount][2] = resultSearch.getString("Email");
                 table[fCount][3] = resultSearch.getString("CellPhone");
                 table[fCount][4] = resultSearch.getString("Gender");
