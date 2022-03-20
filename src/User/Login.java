@@ -86,10 +86,10 @@ public class Login extends javax.swing.JFrame {
 
         txtUserName.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jLabel5.setText("UserName:");
 
-        jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jLabel6.setText("Password:");
 
         btnLogIn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -162,11 +162,11 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(160, 120, 560, 390);
+        jPanel3.setBounds(160, 120, 560, 400);
 
         getAccessibleContext().setAccessibleDescription("");
 
