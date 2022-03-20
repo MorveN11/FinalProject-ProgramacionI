@@ -17,8 +17,9 @@ public class Login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         txtUserName = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -36,11 +37,11 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(100, 0, 0));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrador\\Documents\\GitHub\\FinalProject-ProgramacionI\\Images\\IconoCine.png")); // NOI18N
-
         jLabel3.setFont(new java.awt.Font("Gill Sans Ultra Bold Condensed", 0, 40)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(244, 244, 244));
         jLabel3.setText("CineMetro TryHards");
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/IconoCine.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -50,30 +51,33 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel2)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(33, 33, 33)
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 510, 120);
+        jPanel1.setBounds(0, 0, 670, 120);
 
         jPanel2.setBackground(new java.awt.Color(244, 244, 244));
         jPanel2.setLayout(null);
 
-        jLabel1.setBackground(new java.awt.Color(244, 244, 244));
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrador\\Documents\\GitHub\\FinalProject-ProgramacionI\\Images\\CintaCine.png")); // NOI18N
-        jPanel2.add(jLabel1);
-        jLabel1.setBounds(0, 0, 160, 390);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CintaCine.png"))); // NOI18N
+        jPanel2.add(jLabel8);
+        jLabel8.setBounds(0, 0, 160, 400);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 120, 160, 620);
@@ -217,12 +221,13 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogIn;
     private javax.swing.Box.Filler filler1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

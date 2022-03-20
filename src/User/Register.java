@@ -43,28 +43,26 @@ public class Register extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrador\\Documents\\GitHub\\FinalProject-ProgramacionI\\Images\\Fondo1.1.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Fondo1.1.png"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 520, 140);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrador\\Documents\\GitHub\\FinalProject-ProgramacionI\\Images\\Fondo1.2.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Fondo1.2.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 680, 520, 230);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrador\\Documents\\GitHub\\FinalProject-ProgramacionI\\Images\\Fondo1.3.png")); // NOI18N
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(0, 140, 44, 390);
+        jLabel3.setBounds(0, 140, 0, 390);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrador\\Documents\\GitHub\\FinalProject-ProgramacionI\\Images\\Fondo1.3.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Fondo1.3.png"))); // NOI18N
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, 530, 50, 150);
+        jLabel4.setBounds(0, -10, 50, 690);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrador\\Documents\\GitHub\\FinalProject-ProgramacionI\\Images\\Fondo1.4.png")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Fondo1.4.png"))); // NOI18N
         getContentPane().add(jLabel6);
         jLabel6.setBounds(477, 140, 40, 270);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrador\\Documents\\GitHub\\FinalProject-ProgramacionI\\Images\\Fondo1.4.png")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Fondo1.4.png"))); // NOI18N
         getContentPane().add(jLabel7);
         jLabel7.setBounds(477, 410, 40, 270);
 
@@ -246,37 +244,33 @@ public class Register extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(30, 40, 460, 840);
+        jPanel1.setBounds(40, 40, 460, 840);
 
         setSize(new java.awt.Dimension(533, 943));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCellPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCellPhoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCellPhoneActionPerformed
-
     private void txtGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenderActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGenderActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+    private void txtCellPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCellPhoneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBackActionPerformed
+    }//GEN-LAST:event_txtCellPhoneActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         int exito =  DataBase.saveData(txtName.getText(), txtLastName.getText(), txtEmail.getText(), txtCellPhone.getText(),
-                    Objects.requireNonNull(txtGender.getSelectedItem()).toString(), 
-                    txtUserName.getText(), String.valueOf(txtPassword.getPassword()));
-        
+            Objects.requireNonNull(txtGender.getSelectedItem()).toString(),
+            txtUserName.getText(), String.valueOf(txtPassword.getPassword()));
+
         if(exito>0){
 
-            JOptionPane.showMessageDialog(null, "Los datos se han guardado correctamente", 
-                                  "Éxito en la operación", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Los datos se han guardado correctamente",
+                "Éxito en la operación", JOptionPane.INFORMATION_MESSAGE);
         }else{
-            
+
             JOptionPane.showMessageDialog(null, "Los datos no se pudieron guardar\n"
-                                 + "Inténtelo nuevamente", "Error en la operación", JOptionPane.ERROR_MESSAGE);
+                + "Inténtelo nuevamente", "Error en la operación", JOptionPane.ERROR_MESSAGE);
         }
         this.dispose();
     }//GEN-LAST:event_btnRegisterActionPerformed
@@ -284,6 +278,10 @@ public class Register extends javax.swing.JFrame {
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBackActionPerformed
 
     public static void main(String args[]) {
         

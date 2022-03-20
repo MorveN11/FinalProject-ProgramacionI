@@ -29,7 +29,7 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Administrador\Documents\GitHub\FinalProject-ProgramacionI\Images\Fondo1.1.png"/>
+          <Image iconType="3" name="/Images/Fondo1.1.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -44,7 +44,7 @@
           <Font name="Segoe UI" size="20" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Administrador\Documents\GitHub\FinalProject-ProgramacionI\Images\Fondo1.2.png"/>
+          <Image iconType="3" name="/Images/Fondo1.2.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -54,11 +54,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Administrador\Documents\GitHub\FinalProject-ProgramacionI\Images\Fondo1.3.png"/>
-        </Property>
-      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="0" y="140" width="-1" height="390"/>
@@ -68,19 +63,19 @@
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Administrador\Documents\GitHub\FinalProject-ProgramacionI\Images\Fondo1.3.png"/>
+          <Image iconType="3" name="/Images/Fondo1.3.png"/>
         </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="530" width="50" height="150"/>
+          <AbsoluteConstraints x="0" y="-10" width="50" height="690"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Administrador\Documents\GitHub\FinalProject-ProgramacionI\Images\Fondo1.4.png"/>
+          <Image iconType="3" name="/Images/Fondo1.4.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -92,7 +87,7 @@
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Administrador\Documents\GitHub\FinalProject-ProgramacionI\Images\Fondo1.4.png"/>
+          <Image iconType="3" name="/Images/Fondo1.4.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -109,7 +104,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="30" y="40" width="460" height="840"/>
+          <AbsoluteConstraints x="40" y="40" width="460" height="840"/>
         </Constraint>
       </Constraints>
 
