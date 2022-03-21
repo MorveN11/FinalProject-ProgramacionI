@@ -1,6 +1,7 @@
 package User;
 
-import NetWork.DataBase;
+import NetWork.DataBaseData;
+
 import java.util.Objects;
 import javax.swing.JOptionPane;
 
@@ -258,7 +259,7 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        int exito =  DataBase.saveData(txtName.getText(), txtLastName.getText(), txtEmail.getText(), txtCellPhone.getText(),
+        int exito =  DataBaseData.saveData(txtName.getText(), txtLastName.getText(), txtEmail.getText(), txtCellPhone.getText(),
             Objects.requireNonNull(txtGender.getSelectedItem()).toString(),
             txtUserName.getText(), String.valueOf(txtPassword.getPassword()));
 

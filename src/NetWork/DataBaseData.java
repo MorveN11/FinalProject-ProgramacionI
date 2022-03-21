@@ -4,7 +4,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 
-public class DataBase {
+public class DataBaseData {
 
     public static String[][] table;
     public static int dbPort = 12447;
@@ -177,18 +177,4 @@ public class DataBase {
         }
     }
 
-    public static void showDataUsers() {
-        searchDataUsers();
-
-        for (String[] line : table) {
-            System.out.print("[");
-            for (int i = 0; i < line.length; i++) {
-                System.out.print(line[i]);
-                if (i != line.length - 1) {
-                    System.out.print(", ");
-                }
-            }
-            System.out.println("]");
-        }
-    }
 }

@@ -1,6 +1,7 @@
 package User;
 
-import NetWork.DataBase;
+import NetWork.DataBaseData;
+
 import javax.swing.JOptionPane;
 
 
@@ -175,14 +176,15 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInActionPerformed
-        String searchUser = DataBase.searchRegisteredUser(txtUserName.getText(), String.valueOf(txtPassword.getPassword()));
+        String searchUser = DataBaseData.searchRegisteredUser(txtUserName.getText(), String.valueOf(txtPassword.getPassword()));
 
             if (txtUserName.getText().equals("root")  && String.valueOf(txtPassword.getPassword()).equals("root")) {
                 JOptionPane.showMessageDialog(this, "Bienvenido iniciaste sesion como Administrador");
                 JOptionPane.showMessageDialog(this, "El sudoAdmin solo utiliza la terminal");
                 this.dispose();
+                Admin.code();
             } else if (searchUser.equals("Found User")) {
-                String searchUsername = DataBase.searchUser(txtUserName.getText());
+                String searchUsername = DataBaseData.searchUser(txtUserName.getText());
                 JOptionPane.showMessageDialog(this, "Bienvenid@ \n" +searchUsername+" AEA");
                 Info show = new Info();
                 show.setVisible(true);
