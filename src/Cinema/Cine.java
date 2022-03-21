@@ -1,3 +1,5 @@
+package Cinema;
+
 public class Cine {
 
     private final String pelicula;
