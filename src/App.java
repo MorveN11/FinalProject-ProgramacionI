@@ -1,40 +1,16 @@
 import NetWork.DataBaseMovie;
 
-import javax.swing.*;
-
 public class App {
     public static void main(String[] args) {
-        String nameMovie = "SpiderMan";
-        String hour = "16:00";
-        int statistics = 110;
-        double rating = 8.9;
-        String genre = "SuperHeroes";
-
-        int successfully = DataBaseMovie.createMovie(nameMovie, hour, statistics, rating, genre);
-
-        if(successfully >0){
-
-            JOptionPane.showMessageDialog(null, "La pelicula se creo correctamente",
-                    "2DMovie", JOptionPane.INFORMATION_MESSAGE);
-        }else {
-
-            JOptionPane.showMessageDialog(null, "Error al crear la pelicular\n"
-                    + "Inténtelo nuevamente", "2DMovie", JOptionPane.ERROR_MESSAGE);
-
-        }
-
-        int success = DataBaseMovie.fillMovies2D();
-
-        if(success >0){
-
-            JOptionPane.showMessageDialog(null, "La pelicula se lleno correctamente",
-                    "2DMovie", JOptionPane.INFORMATION_MESSAGE);
-        }else{
-
-            JOptionPane.showMessageDialog(null, "Error al llenar la pelicular\n"
-                    + "Inténtelo nuevamente", "2DMovie", JOptionPane.ERROR_MESSAGE);
-        }
-
-
+        DataBaseMovie.create2DMovie(1, "SpiderMan", "12:00", 400, 8.5,
+                "SuperHeroes");
+        DataBaseMovie.create2DMovie(2, "Avengers", "13:00", 500, 7.8,
+                "SuperHeroes");
+        DataBaseMovie.create3DMovie(1, "El Padrino", "14:00", 350, 6.9,
+                "Drama");
+        DataBaseMovie.create3DMovie(2, "Bob Esponja", "15:00", 450, 7.2,
+                "Infantile");
+        DataBaseMovie.createPremiumMovie("Interstellar", "16:00", 600, 8.4,
+                "Ficcion");
     }
 }

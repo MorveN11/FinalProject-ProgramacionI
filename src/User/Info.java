@@ -73,7 +73,9 @@ public class Info extends javax.swing.JFrame {
     }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-
+        BuyTickets ver = new BuyTickets();
+        ver.setVisible(true);
+        this.dispose();
     }
 
     public static void main(String[] args) {
