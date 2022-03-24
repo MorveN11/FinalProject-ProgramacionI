@@ -26,27 +26,33 @@ public class HomeScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Prices = new javax.swing.JLabel();
+        RoomsBackground = new javax.swing.JLabel();
+        Billboard = new javax.swing.JLabel();
+        Gray = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomsBackground.jpeg"))); // NOI18N
+        Prices.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Prices.jpeg"))); // NOI18N
+        getContentPane().add(Prices, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 720, 210, 50));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1084, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel1)
-                .addContainerGap(172, Short.MAX_VALUE))
-        );
+        RoomsBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomsBackground .jpeg"))); // NOI18N
+        getContentPane().add(RoomsBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 870, 653));
+
+        Billboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BillboardTop.jpeg"))); // NOI18N
+        getContentPane().add(Billboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 780, 80));
+
+        Gray.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Gray.jpeg"))); // NOI18N
+        getContentPane().add(Gray, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 30, 90, 80));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PricesSign.jpeg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 766, 870, 150));
+
+        jLabel2.setText("LOGIN REGISTRARSE (VACIO)");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -87,6 +93,11 @@ public class HomeScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Billboard;
+    private javax.swing.JLabel Gray;
+    private javax.swing.JLabel Prices;
+    private javax.swing.JLabel RoomsBackground;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
