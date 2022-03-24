@@ -1,6 +1,7 @@
 package User;
 
 import NetWork.DataBaseData;
+import Utility.Utilities;
 
 import javax.swing.JOptionPane;
 
@@ -34,6 +35,7 @@ public class Login extends javax.swing.JFrame {
         btnExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
         getContentPane().setLayout(null);
         getContentPane().add(filler1);
         filler1.setBounds(450, 270, 0, 0);
@@ -57,7 +59,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,7 +75,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 670, 120);
+        jPanel1.setBounds(0, 0, 540, 120);
 
         jPanel2.setBackground(new java.awt.Color(244, 244, 244));
         jPanel2.setLayout(null);
@@ -90,10 +92,10 @@ public class Login extends javax.swing.JFrame {
         txtUserName.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
-        jLabel5.setText("UserName:");
+        jLabel5.setText("Nombre de Usuario:");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
-        jLabel6.setText("Password:");
+        jLabel6.setText("Contraseña:");
 
         btnLogIn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnLogIn.setText("Ingresar");
@@ -104,10 +106,15 @@ public class Login extends javax.swing.JFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("Verdana", 1, 32)); // NOI18N
-        jLabel7.setText("LOGIN");
+        jLabel7.setText("Iniciar Sesión");
 
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setText("Regresar");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         txtPassword.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
 
@@ -136,15 +143,15 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69)
+                        .addGap(74, 74, 74)
                         .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(109, 109, 109)
                         .addComponent(btnLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
+                        .addGap(40, 40, 40)
                         .addComponent(jLabel7)))
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,11 +193,12 @@ public class Login extends javax.swing.JFrame {
                 this.dispose();
                 Admin.code();
             } else if (searchUser.equals("Found User")) {
-                String searchUsername = DataBaseData.searchUser(txtUserName.getText());
-                JOptionPane.showMessageDialog(this, "Bienvenid@ \n" +searchUsername+" AEA");
+                DataBaseData.searchUser(txtUserName.getText());
+                JOptionPane.showMessageDialog(this, "Bienvenid@ \n" +Utilities.name +" "+Utilities.lastName+" AEA");
                 statusLogin = true;
-                Register ver = new Register();
-                ver.setVisible(true);
+                HomeScreenLoget show = new HomeScreenLoget();
+                show.setVisible(true);
+                show.nameShow.setText(Utilities.name + " " + Utilities.lastName);
                 this.dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Que fue causa Gaaa,"
@@ -201,6 +209,12 @@ public class Login extends javax.swing.JFrame {
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        HomeScreen show = new HomeScreen();
+        show.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnBackActionPerformed
 
     public static void main(String[] args) {
         

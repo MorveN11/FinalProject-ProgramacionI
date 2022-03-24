@@ -1,5 +1,6 @@
 package NetWork;
 
+import Utility.Utilities;
 import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -76,23 +77,24 @@ public class DataBaseData {
         return resultSaveData;
     }
 
-    public static String searchUser(String userName) {
+    public static void searchUser(String userName) {
 
-        String searchUser = null;
         Connection connection;
 
         try {
 
             connection = connect();
-            String usersData = ("SELECT Name, LastName FROM Data WHERE UserName = '" + userName + "'");
+            String usersData = ("SELECT Name, LastName, Email, CellPhone FROM Data WHERE UserName = '" + userName + "'");
             PreparedStatement searchUserName = connection.prepareStatement(usersData);
             ResultSet resultSearch = searchUserName.executeQuery();
 
             if(resultSearch.next()) {
 
-                String names = resultSearch.getString("Name");
-                String lastNames = resultSearch.getString("LastName");
-                searchUser = (names +" "+ lastNames);
+                Utilities.name = resultSearch.getString("Name");
+                Utilities.lastName = resultSearch.getString("LastName");
+                Utilities.email = resultSearch.getString("Email");
+                Utilities.cellPhone = resultSearch.getString("Cellphone");
+                Utilities.userName = userName;
             }
             connection.close();
 
@@ -100,7 +102,6 @@ public class DataBaseData {
 
             JOptionPane.showMessageDialog(null, e);
         }
-        return searchUser;
     }
 
     public static String searchRegisteredUser(String username, String password) {

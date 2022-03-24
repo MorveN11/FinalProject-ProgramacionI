@@ -4,16 +4,18 @@
  */
 package User;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author Diego
  */
-public class HomeScreen extends javax.swing.JFrame {
+public class HomeScreenLoget extends javax.swing.JFrame {
 
     /**
      * Creates new form HomeScreen
      */
-    public HomeScreen() {
+    public HomeScreenLoget() {
         initComponents();
     }
 
@@ -32,9 +34,9 @@ public class HomeScreen extends javax.swing.JFrame {
         Gray = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        btnLogin = new javax.swing.JButton();
-        btnRegister = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        nameShow = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Team Tryhards 322");
@@ -65,45 +67,24 @@ public class HomeScreen extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(290, 210, 83, 24);
 
-        btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btnLogin.jpeg"))); // NOI18N
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnLogin);
-        btnLogin.setBounds(686, 10, 150, 30);
-
-        btnRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btnRegister.jpeg"))); // NOI18N
-        btnRegister.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegisterActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnRegister);
-        btnRegister.setBounds(520, 10, 140, 30);
-
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Yo Programo Bien, Sino llame a este Numero: 72414837");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(10, 5, 460, 40);
 
+        nameShow.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        getContentPane().add(nameShow);
+        nameShow.setBounds(590, 10, 250, 30);
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel3.setText("Bienvenido:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(500, 10, 80, 30);
+
         setSize(new java.awt.Dimension(864, 943));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        Register show = new Register();
-        show.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnRegisterActionPerformed
-
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        Login show = new Login();
-        show.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnLoginActionPerformed
-
+   
     /**
      * @param args the command line arguments
      */
@@ -121,23 +102,21 @@ public class HomeScreen extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HomeScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeScreenLoget.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HomeScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeScreenLoget.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HomeScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeScreenLoget.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HomeScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeScreenLoget.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomeScreen().setVisible(true);
+                new HomeScreenLoget().setVisible(true);
             }
         });
     }
@@ -147,10 +126,10 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JLabel Gray;
     private javax.swing.JLabel Prices;
     private javax.swing.JLabel RoomsBackground;
-    private javax.swing.JButton btnLogin;
-    private javax.swing.JButton btnRegister;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel nameShow;
     // End of variables declaration//GEN-END:variables
 }

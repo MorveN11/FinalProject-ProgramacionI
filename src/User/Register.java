@@ -59,6 +59,7 @@ public class Register extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Register");
         getContentPane().setLayout(null);
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 140, 0, 390);
@@ -92,42 +93,42 @@ public class Register extends javax.swing.JFrame {
         jLabel7.setBackground(new java.awt.Color(244, 244, 244));
         jLabel7.setFont(new java.awt.Font("Eras Demi ITC", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(244, 244, 244));
-        jLabel7.setText("Name:");
+        jLabel7.setText("Nombre(s):");
 
         jLabel9.setBackground(new java.awt.Color(244, 244, 244));
         jLabel9.setFont(new java.awt.Font("Eras Demi ITC", 0, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(244, 244, 244));
-        jLabel9.setText("CellPhone:");
+        jLabel9.setText("Celular:");
 
         jLabel10.setBackground(new java.awt.Color(244, 244, 244));
         jLabel10.setFont(new java.awt.Font("Eras Demi ITC", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(244, 244, 244));
-        jLabel10.setText("Gender:");
+        jLabel10.setText("Género:");
 
         jLabel11.setBackground(new java.awt.Color(244, 244, 244));
         jLabel11.setFont(new java.awt.Font("Eras Demi ITC", 0, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(244, 244, 244));
-        jLabel11.setText("LastName:");
+        jLabel11.setText("Apellido(s):");
 
         jLabel12.setBackground(new java.awt.Color(244, 244, 244));
         jLabel12.setFont(new java.awt.Font("Eras Demi ITC", 0, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(244, 244, 244));
-        jLabel12.setText("Email:");
+        jLabel12.setText("Correo Electrónico:");
 
         jLabel13.setBackground(new java.awt.Color(244, 244, 244));
         jLabel13.setFont(new java.awt.Font("Eras Demi ITC", 0, 24)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(244, 244, 244));
-        jLabel13.setText("UserName:");
+        jLabel13.setText("Nombre de Usuario:");
 
         jLabel14.setBackground(new java.awt.Color(244, 244, 244));
         jLabel14.setFont(new java.awt.Font("Eras Demi ITC", 0, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(244, 244, 244));
-        jLabel14.setText("Password:");
+        jLabel14.setText("Contraseña:");
 
         jLabel15.setBackground(new java.awt.Color(244, 244, 244));
         jLabel15.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 36)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(244, 244, 244));
-        jLabel15.setText("Register");
+        jLabel15.setText("Registrarse");
 
         btnRegister.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         btnRegister.setText("Registrar");
@@ -175,16 +176,12 @@ public class Register extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(44, Short.MAX_VALUE)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnRegister)
                         .addGap(18, 18, 18)
                         .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(jLabel15)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,24 +189,28 @@ public class Register extends javax.swing.JFrame {
                             .addComponent(txtLastName)
                             .addComponent(txtName)
                             .addComponent(txtUserName)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13)
-                                    .addComponent(txtCellPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9))
-                                .addGap(29, 29, 29)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(txtGender, 0, 206, Short.MAX_VALUE)))
                             .addComponent(txtPassword)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel13)
                                     .addComponent(jLabel12)
                                     .addComponent(jLabel11)
                                     .addComponent(jLabel14)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                    .addComponent(jLabel7)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addGap(117, 117, 117)
+                                        .addComponent(jLabel10)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtCellPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(62, 62, 62)
+                                .addComponent(txtGender, 0, 173, Short.MAX_VALUE)))))
                 .addGap(35, 35, 35))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel15)
+                .addGap(81, 81, 81))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,15 +265,12 @@ public class Register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        if(Login.statusLogin)
         this.dispose();
-        else
-            JOptionPane.showMessageDialog(null, "primero debe logearse");
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        Login ver = new Login();
-        ver.setVisible(true);
+        HomeScreen show = new HomeScreen();
+        show.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
@@ -298,6 +296,16 @@ public class Register extends javax.swing.JFrame {
                     if(success>0){
                         JOptionPane.showMessageDialog(null, "Los datos se han guardado correctamente",
                                 "Éxito en la operación", JOptionPane.INFORMATION_MESSAGE);
+                        Utilities.name = txtName.getText();
+                        Utilities.lastName = txtLastName.getText();
+                        Utilities.email = txtEmail.getText();
+                        Utilities.userName = txtUserName.getText();
+                        Utilities.cellPhone = txtCellPhone.getText();
+                        Login.statusLogin = true;
+                        HomeScreenLoget show = new HomeScreenLoget();
+                        show.nameShow.setText(Utilities.name + " " + Utilities.lastName);
+                        show.setVisible(true);
+                        this.dispose();
                     }else{
                         JOptionPane.showMessageDialog(null, """
                                                             Los datos no se pudieron guardar
@@ -306,8 +314,7 @@ public class Register extends javax.swing.JFrame {
                     this.dispose();
                 } else {
                     txtPassword.setBackground(Color.RED);
-                    JOptionPane.showMessageDialog(null, "La contraseña debe contener al menos 8 caracteres"
-                            + "cambiela e intentelo nuevamente", null, ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Cantidad de caracteres invalida", null, ERROR_MESSAGE);
                 }
             }
             else {
