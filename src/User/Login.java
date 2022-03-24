@@ -7,6 +7,8 @@ import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
+    public static boolean statusLogin = false;
+
     public Login() {
         initComponents();
     }
@@ -186,9 +188,9 @@ public class Login extends javax.swing.JFrame {
             } else if (searchUser.equals("Found User")) {
                 String searchUsername = DataBaseData.searchUser(txtUserName.getText());
                 JOptionPane.showMessageDialog(this, "Bienvenid@ \n" +searchUsername+" AEA");
-                Info show = new Info();
-                show.setVisible(true);
-                show.nameShow.setText(searchUsername);
+                statusLogin = true;
+                Register ver = new Register();
+                ver.setVisible(true);
                 this.dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Que fue causa Gaaa,"

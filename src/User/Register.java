@@ -1,9 +1,13 @@
 package User;
 
 import NetWork.DataBaseData;
+import Utility.Utilities;
 
+import java.awt.*;
 import java.util.Objects;
 import javax.swing.JOptionPane;
+
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
 
 
 public class Register extends javax.swing.JFrame {
@@ -143,6 +147,11 @@ public class Register extends javax.swing.JFrame {
 
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         btnBack.setText("Regresar");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         txtName.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
 
@@ -255,26 +264,80 @@ public class Register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        if(Login.statusLogin)
         this.dispose();
+        else
+            JOptionPane.showMessageDialog(null, "primero debe logearse");
     }//GEN-LAST:event_btnExitActionPerformed
 
-    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        int exito =  DataBaseData.saveData(txtName.getText(), txtLastName.getText(), txtEmail.getText(), txtCellPhone.getText(),
-            Objects.requireNonNull(txtGender.getSelectedItem()).toString(),
-            txtUserName.getText(), String.valueOf(txtPassword.getPassword()));
-
-        if(exito>0){
-
-            JOptionPane.showMessageDialog(null, "Los datos se han guardado correctamente",
-                "Éxito en la operación", JOptionPane.INFORMATION_MESSAGE);
-        }else{
-
-            JOptionPane.showMessageDialog(null, "Los datos no se pudieron guardar\n"
-                + "Inténtelo nuevamente", "Error en la operación", JOptionPane.ERROR_MESSAGE);
-        }
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        Login ver = new Login();
+        ver.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_btnRegisterActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {
+        if (!txtName.getText().isEmpty() && !txtLastName.getText().isEmpty() && !txtEmail.getText().isEmpty()
+        && !txtCellPhone.getText().isEmpty() && !txtUserName.getText().isEmpty() && !txtPassword.getText().isEmpty()) {
+
+            DataBaseData.verifyData();
+            boolean cellPhone = DataBaseData.isRepeated(txtCellPhone.getText(), "CellPhone");
+            boolean userName = DataBaseData.isRepeated(txtUserName.getText(), "UserName");
+            boolean email = DataBaseData.isRepeated(txtEmail.getText(),"Email");
+            String error = "";
+            if(cellPhone && userName && email) {
+                txtCellPhone.setBackground(Color.GREEN);
+                txtUserName.setBackground(Color.GREEN);
+                txtEmail.setBackground(Color.GREEN);
+                
+                if (Utilities.verifyLarge(txtPassword.getText())) {
+                    txtPassword.setBackground(Color.GREEN);
+                    int success =  DataBaseData.saveData(txtName.getText(), txtLastName.getText(), txtEmail.getText(),
+                        txtCellPhone.getText(),Objects.requireNonNull(txtGender.getSelectedItem()).toString(),
+                        txtUserName.getText(), String.valueOf(txtPassword.getPassword()));
+                    if(success>0){
+                        JOptionPane.showMessageDialog(null, "Los datos se han guardado correctamente",
+                                "Éxito en la operación", JOptionPane.INFORMATION_MESSAGE);
+                    }else{
+                        JOptionPane.showMessageDialog(null, """
+                                                            Los datos no se pudieron guardar
+                                                            Int\u00e9ntelo nuevamente""", "Error en la operación", ERROR_MESSAGE);
+                    }
+                    this.dispose();
+                } else {
+                    txtPassword.setBackground(Color.RED);
+                    JOptionPane.showMessageDialog(null, "La contraseña debe contener al menos 8 caracteres"
+                            + "cambiela e intentelo nuevamente", null, ERROR_MESSAGE);
+                }
+            }
+            else {
+                if (cellPhone) {
+                    txtCellPhone.setBackground(Color.GREEN);
+                } else {
+                    txtCellPhone.setBackground(Color.RED);
+                    error = error + " Cell Phone";
+                }
+                if (userName) {
+                    txtUserName.setBackground(Color.GREEN);
+                } else {
+                    txtUserName.setBackground(Color.RED);
+                    error = error + " User Name";
+                }
+                if (email) {
+                    txtEmail.setBackground(Color.GREEN);
+                } else {
+                    txtEmail.setBackground(Color.RED);
+                    error = error + " Email";
+                }
+                JOptionPane.showMessageDialog(null, "El"+error+" que a  ingresado ya esta " +
+                        "registrado, pruebe con uno distinto", null,ERROR_MESSAGE);
+            }
+        } else{
+            JOptionPane.showMessageDialog(null, "Porfavor rellene todos los campos para continuar",
+                    null, ERROR_MESSAGE);
+        }
+    }
+    
     public static void main(String[] args) {
         
         try {

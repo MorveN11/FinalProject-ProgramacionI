@@ -1,12 +1,16 @@
 package NetWork;
 
 import java.sql.*;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 
 public class DataBaseData {
 
     public static String[][] table;
+    public static ArrayList<String> userNameData = new ArrayList<>();
+    public static ArrayList<String> cellPhoneData = new ArrayList<>();
+    public static ArrayList<String> emailData = new ArrayList<>();
     public static int dbPort = 12447;
     public static String dbServer = "mysql-72602-0.cloudclusters.net";
     public static String dbName = "UsersLogin";
@@ -175,6 +179,51 @@ public class DataBaseData {
 
             JOptionPane.showMessageDialog(null, e);
         }
+    }
+
+    public static void verifyData() {
+
+        String usersData = "SELECT Email, UserName, CellPhone FROM Data";
+        Connection connection;
+
+        try {
+            connection = connect();
+
+            PreparedStatement searchUsersData = connection.prepareStatement(usersData);
+            ResultSet resultSearch = searchUsersData.executeQuery();
+
+            while(resultSearch.next()) {
+                emailData.add(resultSearch.getString("Email"));
+                userNameData.add(resultSearch.getString("UserName"));
+                cellPhoneData.add(resultSearch.getString("CellPhone"));
+            }
+            connection.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
+    public static boolean isRepeated(String inputData, String type) {
+        if (type.equals("UserName")) {
+            for (String data : userNameData) {
+                if (data.equals(inputData)) {
+                    return false;
+                }
+            }
+        } else if (type.equals("CellPhone")) {
+            for (String data : cellPhoneData) {
+                if (data.equals(inputData)) {
+                    return false;
+                }
+            }
+        } else {
+            for (String data : emailData) {
+                if (data.equals(inputData)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
 }
