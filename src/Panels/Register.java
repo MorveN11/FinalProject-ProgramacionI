@@ -1,6 +1,7 @@
-package User;
+package Panels;
 
 import NetWork.DataBaseData;
+import User.Customer;
 import Utility.Utilities;
 
 import java.awt.*;
@@ -296,14 +297,14 @@ public class Register extends javax.swing.JFrame {
                     if(success>0){
                         JOptionPane.showMessageDialog(null, "Los datos se han guardado correctamente",
                                 "Éxito en la operación", JOptionPane.INFORMATION_MESSAGE);
-                        Utilities.name = txtName.getText();
-                        Utilities.lastName = txtLastName.getText();
-                        Utilities.email = txtEmail.getText();
-                        Utilities.userName = txtUserName.getText();
-                        Utilities.cellPhone = txtCellPhone.getText();
+                        Customer.name = txtName.getText();
+                        Customer.lastName = txtLastName.getText();
+                        Customer.email = txtEmail.getText();
+                        Customer.userName = txtUserName.getText();
+                        Customer.cellPhone = txtCellPhone.getText();
                         Login.statusLogin = true;
                         HomeScreenLoget show = new HomeScreenLoget();
-                        show.nameShow.setText(Utilities.name + " " + Utilities.lastName);
+                        show.nameShow.setText(Customer.name + " " + Customer.lastName);
                         show.setVisible(true);
                         this.dispose();
                     }else{

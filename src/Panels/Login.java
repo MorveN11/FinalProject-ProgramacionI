@@ -1,6 +1,8 @@
-package User;
+package Panels;
 
 import NetWork.DataBaseData;
+import User.Admin;
+import User.Customer;
 import Utility.Utilities;
 
 import javax.swing.JOptionPane;
@@ -194,11 +196,11 @@ public class Login extends javax.swing.JFrame {
                 Admin.code();
             } else if (searchUser.equals("Found User")) {
                 DataBaseData.searchUser(txtUserName.getText());
-                JOptionPane.showMessageDialog(this, "Bienvenid@ \n" +Utilities.name +" "+Utilities.lastName+" AEA");
+                JOptionPane.showMessageDialog(this, "Bienvenid@ \n" + Customer.name +" "+Customer.lastName+" AEA");
                 statusLogin = true;
                 HomeScreenLoget show = new HomeScreenLoget();
                 show.setVisible(true);
-                show.nameShow.setText(Utilities.name + " " + Utilities.lastName);
+                show.nameShow.setText(Customer.name + " " + Customer.lastName);
                 this.dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Que fue causa Gaaa,"
