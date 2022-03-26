@@ -52,12 +52,10 @@ public class DataBaseMovie {
         return resultSaveData;
     }
 
-    public static void create2DMovie(int cinema, String nameMovie, String hour, int statistics,
-                                     double rating, String genre) {
+    public static void create2DMovie(int cinema, String nameMovie, String hour, String statistics,
+                                     String rating, String genre) {
 
         String cinemaDB = String.valueOf(cinema);
-        String stringStatistics = String.valueOf(statistics);
-        String stringRating = String.valueOf(rating);
         String rowLetter = "A";
         String available = "D";
         int resultSaveData;
@@ -74,8 +72,8 @@ public class DataBaseMovie {
 
                 searchMovieData.setString(1, nameMovie);
                 searchMovieData.setString(2, hour);
-                searchMovieData.setString(3, stringStatistics);
-                searchMovieData.setString(4, stringRating);
+                searchMovieData.setString(3, statistics);
+                searchMovieData.setString(4, rating);
                 searchMovieData.setString(5, genre);
                 searchMovieData.setString(6, rowLetter);
                 searchMovieData.setString(7, available);
@@ -164,14 +162,12 @@ public class DataBaseMovie {
         return resultSaveData;
     }
 
-    public static void create3DMovie(int cinema, String nameMovie, String hour, int statistics,
-                                     double rating, String genre) {
+    public static void create3DMovie(int cinema, String nameMovie, String hour, String statistics,
+                                     String rating, String genre) {
 
         String rowLetter = "A";
         String available = "D";
         String cinemaDB = String.valueOf(cinema);
-        String stringStatistics = String.valueOf(statistics);
-        String stringRating = String.valueOf(rating);
         int resultSaveData;
         Connection connection = null;
 
@@ -186,8 +182,8 @@ public class DataBaseMovie {
 
                 searchMovieData.setString(1, nameMovie);
                 searchMovieData.setString(2, hour);
-                searchMovieData.setString(3, stringStatistics);
-                searchMovieData.setString(4, stringRating);
+                searchMovieData.setString(3, statistics);
+                searchMovieData.setString(4, rating);
                 searchMovieData.setString(5, genre);
                 searchMovieData.setString(6, rowLetter);
                 searchMovieData.setString(7, available);
@@ -278,12 +274,10 @@ public class DataBaseMovie {
     }
 
 
-    public static void createPremiumMovie(String nameMovie, String hour, int statistics, double rating, String genre) {
+    public static void createPremiumMovie(String nameMovie, String hour, String statistics, String rating, String genre) {
 
         String rowLetter = "A";
         String available = "D";
-        String stringStatistics = String.valueOf(statistics);
-        String stringRating = String.valueOf(rating);
         int resultSaveData;
         Connection connection = null;
         String movieData = "INSERT INTO PremiumMovie (NameMovie, Hour, Statistics, Rating, Genre, RowLetter, C1, C2," +
@@ -297,8 +291,8 @@ public class DataBaseMovie {
 
                 searchMovieData.setString(1, nameMovie);
                 searchMovieData.setString(2, hour);
-                searchMovieData.setString(3, stringStatistics);
-                searchMovieData.setString(4, stringRating);
+                searchMovieData.setString(3, statistics);
+                searchMovieData.setString(4, rating);
                 searchMovieData.setString(5, genre);
                 searchMovieData.setString(6, rowLetter);
                 searchMovieData.setString(7, available);
@@ -389,7 +383,7 @@ public class DataBaseMovie {
             connection.close();
 
         } catch (SQLException e) {
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null, e);
         }
 
         return resultOperation;
@@ -401,8 +395,8 @@ public class DataBaseMovie {
         System.out.println(statusSeat);
         if(statusSeat.equals("D")) {
             int secure = JOptionPane.showConfirmDialog(null, """
-                                                             El asiento esta disponible 
-                                                              Desea comparar el Asiento: """+column+", "+line, "Venta Entradas",
+                                                             El asiento esta disponible\040
+                                                              Desea comparar el Asiento:\040""" +column+", "+line, "Venta Entradas",
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (JOptionPane.OK_OPTION == secure) {
                 String reserveSeat = reserveSeat(cinema, column, line);
@@ -433,8 +427,35 @@ public class DataBaseMovie {
             connection.close();
 
         } catch (SQLException e) {
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null, e);
         }
-
     }
+
+    public static String[] showInfoMovie(String cinema) {
+
+        Connection connection;
+
+        String[] data = new String[5];
+        String movieData = "SELECT NameMovie, Hour, Statistics, Rating, Genre FROM "+cinema;
+
+        try {
+
+            connection = DataBaseData.connect();
+            PreparedStatement searchInfo = connection.prepareStatement(movieData);
+            ResultSet resultSearch = searchInfo.executeQuery();
+            if(resultSearch.next()) {
+
+                data[0] = resultSearch.getString("NameMovie");
+                data[1] = resultSearch.getString("Hour");
+                data[2] = resultSearch.getString("Statistics");
+                data[3] = resultSearch.getString("Rating");
+                data[4] = resultSearch.getString("Genre");
+            }
+            connection.close();
+        }catch(SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return data;
+    }
+    
 }

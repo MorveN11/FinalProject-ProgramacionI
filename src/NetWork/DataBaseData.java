@@ -3,6 +3,7 @@ package NetWork;
 import Utility.Utilities;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 
@@ -225,6 +226,64 @@ public class DataBaseData {
             }
         }
         return true;
+    }
+
+    public static void maintenance() {
+        System.out.println("Espere unos segundos hasta que termine el mantenimiento");
+        System.out.print("Realizando Mantenimiento de la Base Datos: ");
+        final int[] count = {0};
+        boolean condition = true;
+        while(condition) {
+            try {
+                if (count[0] < 100) {
+                    System.out.print(Arrays.toString(count) + "%");
+                    count[0]++;
+                    Thread.sleep(400);
+                    if (count[0] == 100) {
+                        System.out.print("\b\b\b\b\b");
+                        System.out.println(Arrays.toString(count) + "%");
+                        System.out.println("\nMantenimiento realizado con exito!!");
+                        restart();
+                        condition = false;
+                    } else if (count[0] < 10) {
+                        System.out.print("\b\b\b\b");
+                    } else {
+                        System.out.print("\b\b\b\b\b");
+                    }
+                }
+            } catch (Exception e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+    }
+
+    public static void restart() {
+        System.out.println("\nDesea Reiniciar la Base de Datos: (yes, no)");
+        String confirmReset = Utilities.confirmReset();
+        if (confirmReset.equals("yes")) {
+            int puntos = 0;
+            int time = 0;
+            final String PUNTO = ".";
+            System.out.print("Reiniciando la base de datos, espere");
+            while (time < 13) {
+                if (puntos < 3) {
+                    System.out.print(PUNTO);
+                    puntos++;
+                    time++;
+                    try {
+                        Thread.sleep(1000);
+                    } catch(InterruptedException ex) {
+                        Thread.currentThread().interrupt();
+                    }
+                } else {
+                    puntos = 0;
+                    System.out.print("\b\b\b");
+                }
+            }
+        } else {
+            System.out.println("Muchas gracias sudo, que tenga un buen dia!");
+        }
+        System.out.println("\nLa base de datos a sido reiniciada!!");
     }
 
 }
