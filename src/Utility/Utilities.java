@@ -80,9 +80,10 @@ public static String userName;
         return data;
     }
 
-    public static String confirmReset(){
+    public static String confirmReset(String text){
         Scanner scanner = new Scanner(System.in);
         do {
+            System.out.println(text);
             String message = scanner.next();
             message = message.toLowerCase();
             message = message.replace(".", "");
@@ -94,6 +95,5 @@ public static String userName;
                 System.out.println("Ingrese un valor valido");
             }
         } while (true);
-
     }
 }

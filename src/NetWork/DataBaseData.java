@@ -243,7 +243,7 @@ public class DataBaseData {
                         System.out.print("\b\b\b\b\b");
                         System.out.println(Arrays.toString(count) + "%");
                         System.out.println("\nMantenimiento realizado con exito!!");
-                        restart();
+                        restart("Desea Reiniciar la Base de Datos: (yes, no)");
                         condition = false;
                     } else if (count[0] < 10) {
                         System.out.print("\b\b\b\b");
@@ -257,9 +257,8 @@ public class DataBaseData {
         }
     }
 
-    public static void restart() {
-        System.out.println("\nDesea Reiniciar la Base de Datos: (yes, no)");
-        String confirmReset = Utilities.confirmReset();
+    public static void restart(String text) {
+        String confirmReset = Utilities.confirmReset(text);
         if (confirmReset.equals("yes")) {
             int puntos = 0;
             int time = 0;

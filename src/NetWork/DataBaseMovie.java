@@ -457,5 +457,31 @@ public class DataBaseMovie {
         }
         return data;
     }
-    
+
+    public static void updateInfoMovie(String cinema, String newAttribute, String attribute) {
+
+        String letter = "A";
+
+        Connection connection;
+        String movieData = "UPDATE "+cinema+" SET "+attribute+"=? WHERE RowLetter=?";
+
+        try {
+
+            connection = DataBaseData.connect();
+
+            PreparedStatement checkSeat = connection.prepareStatement(movieData);
+            checkSeat.setString(1, newAttribute);
+            checkSeat.setString(2, letter);
+            int resultCheck = checkSeat.executeUpdate();
+
+            if(resultCheck > 0) JOptionPane.showMessageDialog(null, "Atributo actualizado" +
+                    "de manera Exitosa!");
+            connection.close();
+
+        }catch(SQLException e) {
+
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
 }
