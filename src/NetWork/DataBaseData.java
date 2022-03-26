@@ -1,5 +1,6 @@
 package NetWork;
 
+import User.Customer;
 import Utility.Utilities;
 import java.sql.*;
 import java.util.ArrayList;
@@ -91,11 +92,11 @@ public class DataBaseData {
 
             if(resultSearch.next()) {
 
-                Utilities.name = resultSearch.getString("Name");
-                Utilities.lastName = resultSearch.getString("LastName");
-                Utilities.email = resultSearch.getString("Email");
-                Utilities.cellPhone = resultSearch.getString("Cellphone");
-                Utilities.userName = userName;
+                Customer.name = resultSearch.getString("Name");
+                Customer.lastName = resultSearch.getString("LastName");
+                Customer.email = resultSearch.getString("Email");
+                Customer.cellPhone = resultSearch.getString("Cellphone");
+                Customer.userName = userName;
             }
             connection.close();
 
