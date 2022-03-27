@@ -1,5 +1,6 @@
 package User;
 
+import NetWork.DataBaseChallenges;
 import NetWork.DataBaseData;
 import NetWork.DataBaseMovie;
 import Utility.Utilities;
@@ -31,7 +32,13 @@ public class Admin {
              5. Leer una pelicula
              6. Crear pelicula
              7. Eliminar pelicula
-             8. Salir de la terminal
+             8. Lanzar un nuevo reto diario
+             9. Cambiar retos diarios
+             10. Leer retos diarios.
+             11. Lanzar un nuevo reto semanal
+             12. Cambiar retos semanales
+             13. Leer retos semanales
+             14. Salir de la terminal
             """;
     public static String menuCreateMovies = """
                 \n¿En que sala desea crear la pelicula?\s
@@ -414,7 +421,13 @@ public class Admin {
                         }
                     }
                 }
-                case 8 -> {
+                case 8 -> System.out.println("Lanzar un nuevo reto diario");
+                case 9 -> System.out.println("Cambiar retos diarios");
+                case 10 -> System.out.println("Leer retos darios");
+                case 11 -> System.out.println("Lanzar un nuevo reto semanal");
+                case 12 -> System.out.println("Cambiar retos semanales");
+                case 13 -> System.out.println("Leer retos semanales");
+                case 14 -> {
                     System.out.println("Muchas gracias sudo!");
                     code = false;
                 }

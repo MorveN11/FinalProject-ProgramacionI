@@ -1,9 +1,13 @@
-import NetWork.DataBaseMovie;
+import NetWork.DataBaseChallenges;
+
+import static NetWork.DataBaseChallenges.showDailyTasks;
 
 
 public class App {
     public static void main(String[] args) throws InterruptedException {
-        DataBaseMovie.updateInfoMovie("2DMovie1", "FastandFurios", "NameMovie");
-        DataBaseMovie.updateInfoMovie("2DMovie2", "SpiderMan", "NameMovie");
+        DataBaseChallenges.showDailyTasks();
+        DataBaseChallenges.deleteDailyTasks(3);
+        System.out.println("\n");
+        DataBaseChallenges.showDailyTasks();
     }
 }

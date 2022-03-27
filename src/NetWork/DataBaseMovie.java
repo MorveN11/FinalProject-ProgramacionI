@@ -482,6 +482,5 @@ public class DataBaseMovie {
 
             JOptionPane.showMessageDialog(null, e);
         }
-
     }
 }

@@ -285,5 +285,4 @@ public class DataBaseData {
         }
         System.out.println("\nLa base de datos a sido reiniciada!!");
     }
-
 }

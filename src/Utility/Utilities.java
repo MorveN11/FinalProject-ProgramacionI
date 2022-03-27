@@ -7,6 +7,9 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Utilities {
+
+    public static String[] abc = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P",
+                                    "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
     public static boolean verifyLarge(String password) {
         int count = 0;
         for (int i = 0; i <password.length();  i++) {
