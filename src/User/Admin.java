@@ -10,14 +10,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Arrays;
-import java.util.Scanner;
 
 import static Utility.Utilities.verifyInt;
 import static javax.swing.JOptionPane.*;
 
 public class Admin {
     public static boolean code = true;
-    public static Scanner scanner = new Scanner(System.in);
     public static String[][] table;
     public static String txtNameMovie = "Cual sera el nuevo nombre de la pelicula?";
     public static String txtHour = "Cual sera la nueva hora de la pelicula?";
@@ -133,15 +131,7 @@ public class Admin {
             int option1 = verifyInt(menu);
             switch (option1) {
                 case 1 -> showUsers();
-                case 2 -> {
-                    boolean condition;
-                    int line;
-                    do {
-                        line = Utilities.verifyInt("Eliga la fila del usuario que desea eliminar");
-                        condition = Utilities.verifyTableData(line);
-                    } while(!condition);
-                    Admin.deleteUser(line);
-                }
+                case 2 -> Utilities.confirmDeleteUser();
                 case 3 -> DataBaseData.maintenance();
                 case 4 -> {
                     boolean condition = true;
@@ -154,28 +144,23 @@ public class Admin {
                                     int attrOption = Utilities.verifyInt(menuAttributesMovies);
                                     switch (attrOption) {
                                         case 1 -> {
-                                            System.out.println(txtNameMovie);
-                                            DataBaseMovie.updateInfoMovie("2DMovie1", scanner.next(), "NameMovie");
+                                            Utilities.confirmNameMovie("2DMovie1", txtNameMovie);
                                             attrCondition = false;
                                         }
                                         case 2 -> {
-                                            System.out.println(txtHour);
-                                            DataBaseMovie.updateInfoMovie("2DMovie1", scanner.next(), "Hour");
+                                            Utilities.confirmHourMovie("2DMovie1", txtHour);
                                             attrCondition = false;
                                         }
                                         case 3 -> {
-                                            System.out.println(txtStatistics);
-                                            DataBaseMovie.updateInfoMovie("2DMovie1", scanner.next(), "Statistics");
+                                            Utilities.confirmStatisticsMovie("2DMovie1", txtStatistics);
                                             attrCondition = false;
                                         }
                                         case 4 -> {
-                                            System.out.println(txtRating);
-                                            DataBaseMovie.updateInfoMovie("2DMovie1", scanner.next(), "Rating");
+                                            Utilities.confirmRatingMovie("2DMovie1", txtRating);
                                             attrCondition = false;
                                         }
                                         case 5 -> {
-                                            System.out.println(txtGenre);
-                                            DataBaseMovie.updateInfoMovie("2DMovie1", scanner.next(), "Genre");
+                                            Utilities.confirmGenreMovie("2DMovie1", txtGenre);
                                             attrCondition = false;
                                         }
                                         default -> System.out.println("Ingrese un numero de Atributo valido");
@@ -189,28 +174,23 @@ public class Admin {
                                     int attrOption = Utilities.verifyInt(menuAttributesMovies);
                                     switch (attrOption) {
                                         case 1 -> {
-                                            System.out.println(txtNameMovie);
-                                            DataBaseMovie.updateInfoMovie("2DMovie2", scanner.next(), "NameMovie");
+                                            Utilities.confirmNameMovie("2DMovie2", txtNameMovie);
                                             attrCondition = false;
                                         }
                                         case 2 -> {
-                                            System.out.println(txtHour);
-                                            DataBaseMovie.updateInfoMovie("2DMovie2", scanner.next(), "Hour");
+                                            Utilities.confirmHourMovie("2DMovie2", txtHour);
                                             attrCondition = false;
                                         }
                                         case 3 -> {
-                                            System.out.println(txtStatistics);
-                                            DataBaseMovie.updateInfoMovie("2DMovie2", scanner.next(), "Statistics");
+                                            Utilities.confirmStatisticsMovie("2DMovie2", txtStatistics);
                                             attrCondition = false;
                                         }
                                         case 4 -> {
-                                            System.out.println(txtRating);
-                                            DataBaseMovie.updateInfoMovie("2DMovie2", scanner.next(), "Rating");
+                                            Utilities.confirmRatingMovie("2DMovie2", txtRating);
                                             attrCondition = false;
                                         }
                                         case 5 -> {
-                                            System.out.println(txtGenre);
-                                            DataBaseMovie.updateInfoMovie("2DMovie2", scanner.next(), "Genre");
+                                            Utilities.confirmGenreMovie("2DMovie2", txtGenre);
                                             attrCondition = false;
                                         }
                                         default -> System.out.println("Ingrese un numero de Atributo valido");
@@ -224,28 +204,23 @@ public class Admin {
                                     int attrOption = Utilities.verifyInt(menuAttributesMovies);
                                     switch (attrOption) {
                                         case 1 -> {
-                                            System.out.println(txtNameMovie);
-                                            DataBaseMovie.updateInfoMovie("3DMovie1", scanner.next(), "NameMovie");
+                                            Utilities.confirmNameMovie("3DMovie1", txtNameMovie);
                                             attrCondition = false;
                                         }
                                         case 2 -> {
-                                            System.out.println(txtHour);
-                                            DataBaseMovie.updateInfoMovie("3DMovie1", scanner.next(), "Hour");
+                                            Utilities.confirmHourMovie("3DMovie1", txtHour);
                                             attrCondition = false;
                                         }
                                         case 3 -> {
-                                            System.out.println(txtStatistics);
-                                            DataBaseMovie.updateInfoMovie("3DMovie1", scanner.next(), "Statistics");
+                                            Utilities.confirmStatisticsMovie("3DMovie1", txtStatistics);
                                             attrCondition = false;
                                         }
                                         case 4 -> {
-                                            System.out.println(txtRating);
-                                            DataBaseMovie.updateInfoMovie("3DMovie1", scanner.next(), "Rating");
+                                            Utilities.confirmRatingMovie("3Movie1", txtRating);
                                             attrCondition = false;
                                         }
                                         case 5 -> {
-                                            System.out.println(txtGenre);
-                                            DataBaseMovie.updateInfoMovie("3DMovie1", scanner.next(), "Genre");
+                                            Utilities.confirmGenreMovie("3DMovie1", txtGenre);
                                             attrCondition = false;
                                         }
                                         default -> System.out.println("Ingrese un numero de Atributo valido");
@@ -259,28 +234,23 @@ public class Admin {
                                     int attrOption = Utilities.verifyInt(menuAttributesMovies);
                                     switch (attrOption) {
                                         case 1 -> {
-                                            System.out.println(txtNameMovie);
-                                            DataBaseMovie.updateInfoMovie("3DMovie2", scanner.next(), "NameMovie");
+                                            Utilities.confirmNameMovie("3DMovie2", txtNameMovie);
                                             attrCondition = false;
                                         }
                                         case 2 -> {
-                                            System.out.println(txtHour);
-                                            DataBaseMovie.updateInfoMovie("3DMovie2", scanner.next(), "Hour");
+                                            Utilities.confirmHourMovie("3DMovie2", txtHour);
                                             attrCondition = false;
                                         }
                                         case 3 -> {
-                                            System.out.println(txtStatistics);
-                                            DataBaseMovie.updateInfoMovie("3DMovie2", scanner.next(), "Statistics");
+                                            Utilities.confirmStatisticsMovie("3DMovie2", txtStatistics);
                                             attrCondition = false;
                                         }
                                         case 4 -> {
-                                            System.out.println(txtRating);
-                                            DataBaseMovie.updateInfoMovie("3DMovie2", scanner.next(), "Rating");
+                                            Utilities.confirmRatingMovie("3DMovie2", txtRating);
                                             attrCondition = false;
                                         }
                                         case 5 -> {
-                                            System.out.println(txtGenre);
-                                            DataBaseMovie.updateInfoMovie("3DMovie2", scanner.next(), "Genre");
+                                            Utilities.confirmGenreMovie("3DMovie2", txtGenre);
                                             attrCondition = false;
                                         }
                                         default -> System.out.println("Ingrese un numero de Atributo valido");
@@ -294,28 +264,23 @@ public class Admin {
                                     int attrOption = Utilities.verifyInt(menuAttributesMovies);
                                     switch (attrOption) {
                                         case 1 -> {
-                                            System.out.println(txtNameMovie);
-                                            DataBaseMovie.updateInfoMovie("PremiumMovie", scanner.next(), "NameMovie");
+                                            Utilities.confirmNameMovie("PremiumMovie", txtNameMovie);
                                             attrCondition = false;
                                         }
                                         case 2 -> {
-                                            System.out.println(txtHour);
-                                            DataBaseMovie.updateInfoMovie("PremiumMovie", scanner.next(), "Hour");
+                                            Utilities.confirmHourMovie("PremiumMovie", txtHour);
                                             attrCondition = false;
                                         }
                                         case 3 -> {
-                                            System.out.println(txtStatistics);
-                                            DataBaseMovie.updateInfoMovie("PremiumMovie", scanner.next(), "Statistics");
+                                            Utilities.confirmStatisticsMovie("PremiumMovie", txtStatistics);
                                             attrCondition = false;
                                         }
                                         case 4 -> {
-                                            System.out.println(txtRating);
-                                            DataBaseMovie.updateInfoMovie("PremiumMovie", scanner.next(), "Rating");
+                                            Utilities.confirmRatingMovie("PremiumMovie", txtRating);
                                             attrCondition = false;
                                         }
                                         case 5 -> {
-                                            System.out.println(txtGenre);
-                                            DataBaseMovie.updateInfoMovie("PremiumMovie", scanner.next(), "Genre");
+                                            Utilities.confirmGenreMovie("PremiumMovie", txtGenre);
                                             attrCondition = false;
                                         }
                                         default -> System.out.println("Ingrese un numero de Atributo valido");
@@ -424,74 +389,14 @@ public class Admin {
                         }
                     }
                 }
-                case 8 -> {
-                    String message = JOptionPane.showInputDialog(null, "Como se llamara la " +
-                            "nueva tarea diaria?", null, INFORMATION_MESSAGE);
-                    if (message != null) {
-                        DataBaseChallenges.createDailyTask(message);
-                        JOptionPane.showMessageDialog(null, "La tarea diaria se creo con exito",
-                                null, INFORMATION_MESSAGE);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "La tarea diaria no se creo",
-                                null, ERROR_MESSAGE);
-                    }
-                }
-                case 9 -> {
-                    int secure = JOptionPane.showConfirmDialog(null, "Desea reiniciar las tareas " +
-                                    "diarias de los usuarios", null, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                    if (OK_OPTION == secure) {
-                        DataBaseChallenges.updateDailyTasks();
-                        JOptionPane.showMessageDialog(null, "Los retos diarios han sido cambiados",
-                                null, INFORMATION_MESSAGE);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "No se reinciarion los retos diarios de " +
-                                "los usuarios");
-                    }
-                }
+                case 8 -> Utilities.confirmNewDailyChallenge();
+                case 9 -> Utilities.confirmUpdateDailyChallenges();
                 case 10 -> DataBaseChallenges.showDailyTasks();
-                case 11 -> {
-                    boolean condition;
-                    int line;
-                    do {
-                        line = Utilities.verifyInt("Eliga la fila de reto diario dese Eliminar?");
-                        condition = Utilities.verifyDBDailyChallenges(line);
-                    } while(!condition);
-                    DataBaseChallenges.deleteDailyTasks(line);
-                }
-                case 12 -> {
-                    String message = JOptionPane.showInputDialog(null, "Como se llamara la " +
-                            "nueva tarea semanal?", null, INFORMATION_MESSAGE);
-                    if (message != null) {
-                        DataBaseChallenges.createWeeklyTask(message);
-                        JOptionPane.showMessageDialog(null, "La tarea semanal se creo con exito",
-                                null, INFORMATION_MESSAGE);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "La tarea semanal no se creo",
-                                null, ERROR_MESSAGE);
-                    }
-                }
-                case 13 -> {
-                    int secure = JOptionPane.showConfirmDialog(null, "Desea reiniciar las tareas " +
-                            "semanales de los usuarios", null, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                    if (OK_OPTION == secure) {
-                        DataBaseChallenges.updateWeeklyTasks();
-                            JOptionPane.showMessageDialog(null, "Los retos semanales han sido cambiados",
-                                null, INFORMATION_MESSAGE);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "No se reiniciaron los retos semanales de " +
-                                "los usuarios", null, ERROR_MESSAGE);
-                    }
-                }
+                case 11 -> Utilities.confirmDeleteDailyChallenge();
+                case 12 -> Utilities.confirmNewWeeklyChallenge();
+                case 13 -> Utilities.confirmUpdateWeeklyChallenge();
                 case 14 -> DataBaseChallenges.showWeeklyTasks();
-                case 15 -> {
-                    boolean condition;
-                    int line;
-                    do {
-                        line = Utilities.verifyInt("Eliga la fila de reto semanal dese Eliminar?");
-                        condition = Utilities.verifyDBWeeklyChallenges(line);
-                    } while(!condition);
-                    DataBaseChallenges.deleteWeeklyTasks(line);
-                }
+                case 15 -> Utilities.confirmDeleteWeeklyChallenge();
                 case 16 -> {
                     System.out.println("Muchas gracias sudo!");
                     code = false;

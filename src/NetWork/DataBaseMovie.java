@@ -472,10 +472,7 @@ public class DataBaseMovie {
             PreparedStatement checkSeat = connection.prepareStatement(movieData);
             checkSeat.setString(1, newAttribute);
             checkSeat.setString(2, letter);
-            int resultCheck = checkSeat.executeUpdate();
-
-            if(resultCheck > 0) JOptionPane.showMessageDialog(null, "Atributo actualizado" +
-                    "de manera Exitosa!");
+            checkSeat.executeUpdate();
             connection.close();
 
         }catch(SQLException e) {
