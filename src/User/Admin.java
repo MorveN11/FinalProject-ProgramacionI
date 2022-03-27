@@ -13,6 +13,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 import static Utility.Utilities.verifyInt;
+import static javax.swing.JOptionPane.*;
 
 public class Admin {
     public static boolean code = true;
@@ -34,11 +35,13 @@ public class Admin {
              7. Eliminar pelicula
              8. Lanzar un nuevo reto diario
              9. Cambiar retos diarios
-             10. Leer retos diarios.
-             11. Lanzar un nuevo reto semanal
-             12. Cambiar retos semanales
-             13. Leer retos semanales
-             14. Salir de la terminal
+             10. Leer retos diarios
+             11. Eliminar un reto diario
+             12. Lanzar un nuevo reto semanal
+             13. Cambiar retos semanales
+             14. Leer retos semanales
+             15. Eliminar un reto semanal
+             16. Salir de la terminal
             """;
     public static String menuCreateMovies = """
                 \n¿En que sala desea crear la pelicula?\s
@@ -103,7 +106,7 @@ public class Admin {
         int secure = JOptionPane.showConfirmDialog(null, "Esta seguro de eliminar al " +
                 "usuario "+user, "Eliminar Usuario", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
-        if (JOptionPane.OK_OPTION == secure) {
+        if (OK_OPTION == secure) {
             Connection connection;
             try {
                 connection = DataBaseData.connect();
@@ -421,13 +424,75 @@ public class Admin {
                         }
                     }
                 }
-                case 8 -> System.out.println("Lanzar un nuevo reto diario");
-                case 9 -> System.out.println("Cambiar retos diarios");
-                case 10 -> System.out.println("Leer retos darios");
-                case 11 -> System.out.println("Lanzar un nuevo reto semanal");
-                case 12 -> System.out.println("Cambiar retos semanales");
-                case 13 -> System.out.println("Leer retos semanales");
-                case 14 -> {
+                case 8 -> {
+                    String message = JOptionPane.showInputDialog(null, "Como se llamara la " +
+                            "nueva tarea diaria?", null, INFORMATION_MESSAGE);
+                    if (message != null) {
+                        DataBaseChallenges.createDailyTask(message);
+                        JOptionPane.showMessageDialog(null, "La tarea diaria se creo con exito",
+                                null, INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "La tarea diaria no se creo",
+                                null, ERROR_MESSAGE);
+                    }
+                }
+                case 9 -> {
+                    int secure = JOptionPane.showConfirmDialog(null, "Desea reiniciar las tareas " +
+                                    "diarias de los usuarios", null, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    if (OK_OPTION == secure) {
+                        DataBaseChallenges.updateDailyTasks();
+                        JOptionPane.showMessageDialog(null, "Los retos diarios han sido cambiados",
+                                null, INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No se reinciarion los retos diarios de " +
+                                "los usuarios");
+                    }
+                }
+                case 10 -> DataBaseChallenges.showDailyTasks();
+                case 11 -> {
+                    boolean condition;
+                    int line;
+                    do {
+                        line = Utilities.verifyInt("Eliga la fila de reto diario dese Eliminar?");
+                        condition = Utilities.verifyDBDailyChallenges(line);
+                    } while(!condition);
+                    DataBaseChallenges.deleteDailyTasks(line);
+                }
+                case 12 -> {
+                    String message = JOptionPane.showInputDialog(null, "Como se llamara la " +
+                            "nueva tarea semanal?", null, INFORMATION_MESSAGE);
+                    if (message != null) {
+                        DataBaseChallenges.createWeeklyTask(message);
+                        JOptionPane.showMessageDialog(null, "La tarea semanal se creo con exito",
+                                null, INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "La tarea semanal no se creo",
+                                null, ERROR_MESSAGE);
+                    }
+                }
+                case 13 -> {
+                    int secure = JOptionPane.showConfirmDialog(null, "Desea reiniciar las tareas " +
+                            "semanales de los usuarios", null, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    if (OK_OPTION == secure) {
+                        DataBaseChallenges.updateWeeklyTasks();
+                            JOptionPane.showMessageDialog(null, "Los retos semanales han sido cambiados",
+                                null, INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No se reiniciaron los retos semanales de " +
+                                "los usuarios", null, ERROR_MESSAGE);
+                    }
+                }
+                case 14 -> DataBaseChallenges.showWeeklyTasks();
+                case 15 -> {
+                    boolean condition;
+                    int line;
+                    do {
+                        line = Utilities.verifyInt("Eliga la fila de reto semanal dese Eliminar?");
+                        condition = Utilities.verifyDBWeeklyChallenges(line);
+                    } while(!condition);
+                    DataBaseChallenges.deleteWeeklyTasks(line);
+                }
+                case 16 -> {
                     System.out.println("Muchas gracias sudo!");
                     code = false;
                 }

@@ -1,12 +1,15 @@
 package NetWork;
 
 
+import User.Admin;
 import User.Customer;
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import static javax.swing.JOptionPane.*;
 
 
 public class DataBaseChallenges {
@@ -198,8 +201,8 @@ public class DataBaseChallenges {
 
     public static void updateDailyTasks() {
         getDailyTasks();
-        int count = -1;
-        while (count < DataBaseChallenges.dailyTasks.length) {
+        int count = 0;
+        while (count < Admin.table.length) {
             DataBaseChallenges.saveUsersDailyTasks();
             DataBaseChallenges.getDailyTasks();
             DataBaseChallenges.cleanDataBaseChallenges();
@@ -209,18 +212,28 @@ public class DataBaseChallenges {
     }
 
     public static void deleteDailyTasks(int line) {
-        Connection connection;
-        String tasksChallenges = "DELETE FROM DailyTasks WHERE Challenges=?";
-        try {
-            connection = DataBaseData.connect();
-            PreparedStatement searchTask = connection.prepareStatement(tasksChallenges);
-            searchTask.setString(1, "Challenge"+(line-1));
-            searchTask.executeUpdate();
-            connection.close();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
+        int secure = JOptionPane.showConfirmDialog(null, "Esta seguro de eliminar el " +
+                "'Challenge"+(line-1)+"'", null, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        if (OK_OPTION == secure) {
+            Connection connection;
+            String tasksChallenges = "DELETE FROM DailyTasks WHERE Challenges=?";
+            try {
+                connection = DataBaseData.connect();
+                PreparedStatement searchTask = connection.prepareStatement(tasksChallenges);
+                searchTask.setString(1, "Challenge" + (line - 1));
+                searchTask.executeUpdate();
+                connection.close();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+            updateDBDailyTasks();
+            JOptionPane.showMessageDialog(null, "La tarea diaria se elimino con exito!!", null,
+                    INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "La tarea diario no se elimino", null,
+                    ERROR_MESSAGE);
         }
-        updateDBDailyTasks();
     }
 
     public static void cleanDailyTasks() {
@@ -395,7 +408,7 @@ public class DataBaseChallenges {
             searchDataUsers.setString(9, Customer.loginCounter);
             searchDataUsers.setString(10, Customer.dailyChallenges);
             searchDataUsers.setString(11, "["+saveWeeklyTasks[0]+", "+saveWeeklyTasks[1]+", "+
-                    saveWeeklyTasks[2]+", "+saveWeeklyTasks[3]+", "+saveWeeklyTasks[4]+"]");
+                    saveWeeklyTasks[2]+"]");
             searchDataUsers.setString(12, Customer.chalaCoins);
             searchDataUsers.setByte(13, Customer.avatar);
             searchDataUsers.executeUpdate();
@@ -408,8 +421,8 @@ public class DataBaseChallenges {
 
     public static void updateWeeklyTasks() {
         getWeeklyTasks();
-        int count = -1;
-        while (count < weeklyTasks.length) {
+        int count = 0;
+        while (count < Admin.table.length) {
             DataBaseChallenges.saveUsersWeeklyTasks();
             DataBaseChallenges.getWeeklyTasks();
             DataBaseChallenges.cleanDataBaseChallenges();
@@ -419,18 +432,27 @@ public class DataBaseChallenges {
     }
 
     public static void deleteWeeklyTasks(int line) {
-        Connection connection;
-        String tasksChallenges = "DELETE FROM WeeklyTasks WHERE Challenges=?";
-        try {
-            connection = DataBaseData.connect();
-            PreparedStatement searchTask = connection.prepareStatement(tasksChallenges);
-            searchTask.setString(1, "Challenge"+(line-1));
-            searchTask.executeUpdate();
-            connection.close();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
+        int secure = JOptionPane.showConfirmDialog(null, "Esta seguro de eliminar el" +
+                "'Challenge"+(line-1)+"'", null, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (OK_OPTION == secure) {
+            Connection connection;
+            String tasksChallenges = "DELETE FROM WeeklyTasks WHERE Challenges=?";
+            try {
+                connection = DataBaseData.connect();
+                PreparedStatement searchTask = connection.prepareStatement(tasksChallenges);
+                searchTask.setString(1, "Challenge" + (line - 1));
+                searchTask.executeUpdate();
+                connection.close();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+            updateDBWeeklyTasks();
+            JOptionPane.showMessageDialog(null, "Se elimino el reto semanal de forma exitosa!!",
+                    null, INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "La tarea semanal no se elimino", null,
+                    ERROR_MESSAGE);
         }
-        updateDBWeeklyTasks();
     }
 
     public static void cleanWeeklyTasks() {

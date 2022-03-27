@@ -1,6 +1,7 @@
 package Utility;
 
 
+import NetWork.DataBaseChallenges;
 import User.Admin;
 
 import java.util.InputMismatchException;
@@ -91,5 +92,23 @@ public class Utilities {
                 System.out.println("Ingrese un valor valido");
             }
         } while (true);
+    }
+
+    public static boolean verifyDBDailyChallenges(int number) {
+        if (number > 0 && number <= DataBaseChallenges.indexDailyTasks()){
+            return true;
+        } else {
+            System.out.println("Valor de fila invalido");
+            return false;
+        }
+    }
+
+    public static boolean verifyDBWeeklyChallenges(int number) {
+        if (number > 0 && number <= DataBaseChallenges.indexWeeklyTasks()){
+            return true;
+        } else {
+            System.out.println("Valor de fila invalido");
+            return false;
+        }
     }
 }
