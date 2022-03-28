@@ -4,6 +4,22 @@
  */
 package Panels;
 
+import NetWork.DataBaseData;
+import com.mysql.jdbc.Connection;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.sql.Blob;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Diego
@@ -15,6 +31,9 @@ public class HomeScreenLoget extends javax.swing.JFrame {
      */
     public HomeScreenLoget() {
         initComponents();
+        load2DMovie1();
+       
+  
     }
 
     /**
@@ -26,12 +45,16 @@ public class HomeScreenLoget extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        HourSala1 = new javax.swing.JLabel();
+        BuySala1 = new javax.swing.JButton();
+        NameSala1 = new javax.swing.JLabel();
+        ImageSala1 = new javax.swing.JLabel();
+        GenreSala1 = new javax.swing.JLabel();
         Prices = new javax.swing.JLabel();
         RoomsBackground = new javax.swing.JLabel();
         Billboard = new javax.swing.JLabel();
         Gray = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         nameShow = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -40,6 +63,18 @@ public class HomeScreenLoget extends javax.swing.JFrame {
         setTitle("Team Tryhards 322");
         setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(null);
+        getContentPane().add(HourSala1);
+        HourSala1.setBounds(250, 240, 120, 30);
+
+        BuySala1.setText("Comprar");
+        getContentPane().add(BuySala1);
+        BuySala1.setBounds(270, 380, 100, 24);
+        getContentPane().add(NameSala1);
+        NameSala1.setBounds(250, 200, 110, 30);
+        getContentPane().add(ImageSala1);
+        ImageSala1.setBounds(60, 160, 160, 240);
+        getContentPane().add(GenreSala1);
+        GenreSala1.setBounds(260, 280, 120, 30);
 
         Prices.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Prices.jpeg"))); // NOI18N
         getContentPane().add(Prices);
@@ -47,7 +82,7 @@ public class HomeScreenLoget extends javax.swing.JFrame {
 
         RoomsBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomsBackground .jpeg"))); // NOI18N
         getContentPane().add(RoomsBackground);
-        RoomsBackground.setBounds(0, 133, 870, 630);
+        RoomsBackground.setBounds(-10, 130, 870, 630);
 
         Billboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BillboardTop.jpeg"))); // NOI18N
         getContentPane().add(Billboard);
@@ -60,10 +95,6 @@ public class HomeScreenLoget extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PricesSign.jpeg"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 766, 870, 150);
-
-        jButton1.setText("jButton1");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(290, 210, 83, 24);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Yo Programo Bien, Sino llame a este Numero: 72414837");
@@ -110,24 +141,62 @@ public class HomeScreenLoget extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new HomeScreenLoget().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Billboard;
+    private javax.swing.JButton BuySala1;
+    public javax.swing.JLabel GenreSala1;
     private javax.swing.JLabel Gray;
+    public javax.swing.JLabel HourSala1;
+    public javax.swing.JLabel ImageSala1;
+    public javax.swing.JLabel NameSala1;
     private javax.swing.JLabel Prices;
     private javax.swing.JLabel RoomsBackground;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     public javax.swing.JLabel nameShow;
     // End of variables declaration//GEN-END:variables
+
+    private void load2DMovie1() {
+        java.sql.Connection connection = null;
+        String dbMovie = "SELECT NameMovie, Hour, Genre, Image FROM 2DMovie1";
+        
+        try {
+            connection = DataBaseData.connect();
+            PreparedStatement searchData = connection.prepareStatement(dbMovie);
+            ResultSet resultSearch = searchData.executeQuery();
+            if(resultSearch.next()) {
+                NameSala1.setText(resultSearch.getString("NameMovie"));
+                HourSala1.setText(resultSearch.getString("Hour"));
+                GenreSala1.setText(resultSearch.getString("Genre"));
+                Blob blob = resultSearch.getBlob("Image");
+                byte[] data = blob.getBytes(1, (int) blob.length());
+                BufferedImage img = null;
+                    try {
+                        img = ImageIO.read(new ByteArrayInputStream(data));
+                    } catch (IOException e) {
+                        Logger.getLogger(HomeScreenLoget.class.getName()).log(Level.SEVERE, null, e);
+                    }
+                    
+                    ImageIcon icono = new ImageIcon(img);
+                    Icon imagen = new ImageIcon(icono.getImage().getScaledInstance(ImageSala1.getWidth(), ImageSala1.getHeight(), Image.SCALE_DEFAULT));
+                    ImageSala1.setIcon(imagen);
+            }
+            connection.close();
+         
+         
+        } catch(SQLException e) {
+            
+            System.out.println(e);
+        } 
+    }
 }

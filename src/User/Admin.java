@@ -18,7 +18,9 @@ public class Admin {
     public static boolean code = true;
     public static String[][] table;
     public static String txtNameMovie = "Cual sera el nuevo nombre de la pelicula?";
-    public static String txtHour = "Cual sera la nueva hora de la pelicula?";
+    public static String txtHourMor = "Cual sera la nueva hora de la Mañana de la pelicula?";
+    public static String txtHourAft = "Cual sera la nueva hora de la Tarde de la pelicula?";
+    public static String txtHourNig = "Cual sera la nueva hora de la Noche de la pelicula?";
     public static String txtStatistics = "Que nueva estadistica tendra la pelicula?";
     public static String txtRating = "Que nuevo rating tendra la pelicula?";
     public static String txtGenre = "De que nuevo genero sera la pelicula?";
@@ -45,41 +47,39 @@ public class Admin {
                 \n¿En que sala desea crear la pelicula?\s
                 1. 2DMovie1
                 2. 2DMovie2
-                3. 3DMovie1
-                4. 3DMovie2
-                5. PremiumMovie
+                3. 3DMovie
+                4. PremiumMovie
                 """;
     public static String menuDeleteMovies = """
                 \nQue sala desea eliminar?\s
                 1. 2DMovie1
                 2. 2DMovie2
-                3. 3DMovie1
-                4. 3DMovie2
-                5. PremiumMovie
+                3. 3DMovie
+                4. PremiumMovie
                 """;
     public static String menuReadMovies = """
                 \nQue sala desea leer?\s
                  1. 2DMovie1
                  2. 2DMovie2
-                 3. 3DMovie1
-                 4. 3DMovie2
-                 5. PremiumMovie
+                 3. 3DMovie
+                 4. PremiumMovie
                  """;
     public static String menuUpdateMovies = """
                 \nQue sala desea actualizar?\s
                  1. 2DMovie1
                  2. 2DMovie2
-                 3. 3DMovie1
-                 4. 3DMovie2
-                 5. PremiumMovie
+                 3. 3DMovie
+                 4. PremiumMovie
                  """;
     public static String menuAttributesMovies = """
                 \nQue atributo desea actualizar?\s
                  1. Nombre de la pelicula
-                 2. Hora de la pelicula
-                 3. Stadisticas de la pelicula
-                 4. Rating de la pelicula
-                 5. Genero de la pelicula
+                 2. Hora de la Mañana de la pelicula
+                 3. Hora de la Tarde de la pelicula
+                 4. Hora de la Noche de la pelicula
+                 5. Stadisticas de la pelicula
+                 6. Rating de la pelicula
+                 7. Genero de la pelicula
                  """;
 
     public static void showUsers() {
@@ -148,25 +148,33 @@ public class Admin {
                                             attrCondition = false;
                                         }
                                         case 2 -> {
-                                            Utilities.confirmHourMovie("2DMovie1", txtHour);
+                                            Utilities.confirmHourMorMovie("2DMovie1", txtHourMor);
                                             attrCondition = false;
                                         }
                                         case 3 -> {
-                                            Utilities.confirmStatisticsMovie("2DMovie1", txtStatistics);
+                                            Utilities.confirmHourAftMovie("2DMovie1", txtHourAft);
                                             attrCondition = false;
                                         }
                                         case 4 -> {
-                                            Utilities.confirmRatingMovie("2DMovie1", txtRating);
+                                            Utilities.confirmHourNigMovie("2DMovie1", txtHourNig);
                                             attrCondition = false;
                                         }
                                         case 5 -> {
+                                            Utilities.confirmStatisticsMovie("2DMovie1", txtStatistics);
+                                            attrCondition = false;
+                                        }
+                                        case 6 -> {
+                                            Utilities.confirmRatingMovie("2DMovie1", txtRating);
+                                            attrCondition = false;
+                                        }
+                                        case 7 -> {
                                             Utilities.confirmGenreMovie("2DMovie1", txtGenre);
                                             attrCondition = false;
                                         }
                                         default -> System.out.println("Ingrese un numero de Atributo valido");
                                     }
+                                    condition = false;
                                 }
-                                condition = false;
                             }
                             case 2 -> {
                                 boolean attrCondition = true;
@@ -178,25 +186,33 @@ public class Admin {
                                             attrCondition = false;
                                         }
                                         case 2 -> {
-                                            Utilities.confirmHourMovie("2DMovie2", txtHour);
+                                            Utilities.confirmHourMorMovie("2DMovie2", txtHourMor);
                                             attrCondition = false;
                                         }
                                         case 3 -> {
-                                            Utilities.confirmStatisticsMovie("2DMovie2", txtStatistics);
+                                            Utilities.confirmHourAftMovie("2DMovie2", txtHourAft);
                                             attrCondition = false;
                                         }
                                         case 4 -> {
-                                            Utilities.confirmRatingMovie("2DMovie2", txtRating);
+                                            Utilities.confirmHourNigMovie("2DMovie2", txtHourNig);
                                             attrCondition = false;
                                         }
                                         case 5 -> {
+                                            Utilities.confirmStatisticsMovie("2DMovie2", txtStatistics);
+                                            attrCondition = false;
+                                        }
+                                        case 6 -> {
+                                            Utilities.confirmRatingMovie("2DMovie2", txtRating);
+                                            attrCondition = false;
+                                        }
+                                        case 7 -> {
                                             Utilities.confirmGenreMovie("2DMovie2", txtGenre);
                                             attrCondition = false;
                                         }
                                         default -> System.out.println("Ingrese un numero de Atributo valido");
                                     }
+                                    condition = false;
                                 }
-                                condition = false;
                             }
                             case 3 -> {
                                 boolean attrCondition = true;
@@ -204,61 +220,39 @@ public class Admin {
                                     int attrOption = Utilities.verifyInt(menuAttributesMovies);
                                     switch (attrOption) {
                                         case 1 -> {
-                                            Utilities.confirmNameMovie("3DMovie1", txtNameMovie);
+                                            Utilities.confirmNameMovie("3DMovie", txtNameMovie);
                                             attrCondition = false;
                                         }
                                         case 2 -> {
-                                            Utilities.confirmHourMovie("3DMovie1", txtHour);
+                                            Utilities.confirmHourMorMovie("3DMovie", txtHourMor);
                                             attrCondition = false;
                                         }
                                         case 3 -> {
-                                            Utilities.confirmStatisticsMovie("3DMovie1", txtStatistics);
+                                            Utilities.confirmHourAftMovie("3DMovie", txtHourAft);
                                             attrCondition = false;
                                         }
                                         case 4 -> {
-                                            Utilities.confirmRatingMovie("3Movie1", txtRating);
+                                            Utilities.confirmHourNigMovie("3DMovie", txtHourNig);
                                             attrCondition = false;
                                         }
                                         case 5 -> {
-                                            Utilities.confirmGenreMovie("3DMovie1", txtGenre);
+                                            Utilities.confirmStatisticsMovie("3DMovie", txtStatistics);
+                                            attrCondition = false;
+                                        }
+                                        case 6 -> {
+                                            Utilities.confirmRatingMovie("3DMovie", txtRating);
+                                            attrCondition = false;
+                                        }
+                                        case 7 -> {
+                                            Utilities.confirmGenreMovie("3DMovie", txtGenre);
                                             attrCondition = false;
                                         }
                                         default -> System.out.println("Ingrese un numero de Atributo valido");
                                     }
+                                    condition = false;
                                 }
-                                condition = false;
                             }
                             case 4 -> {
-                                boolean attrCondition = true;
-                                while (attrCondition) {
-                                    int attrOption = Utilities.verifyInt(menuAttributesMovies);
-                                    switch (attrOption) {
-                                        case 1 -> {
-                                            Utilities.confirmNameMovie("3DMovie2", txtNameMovie);
-                                            attrCondition = false;
-                                        }
-                                        case 2 -> {
-                                            Utilities.confirmHourMovie("3DMovie2", txtHour);
-                                            attrCondition = false;
-                                        }
-                                        case 3 -> {
-                                            Utilities.confirmStatisticsMovie("3DMovie2", txtStatistics);
-                                            attrCondition = false;
-                                        }
-                                        case 4 -> {
-                                            Utilities.confirmRatingMovie("3DMovie2", txtRating);
-                                            attrCondition = false;
-                                        }
-                                        case 5 -> {
-                                            Utilities.confirmGenreMovie("3DMovie2", txtGenre);
-                                            attrCondition = false;
-                                        }
-                                        default -> System.out.println("Ingrese un numero de Atributo valido");
-                                    }
-                                }
-                                condition = false;
-                            }
-                            case 5 -> {
                                 boolean attrCondition = true;
                                 while (attrCondition) {
                                     int attrOption = Utilities.verifyInt(menuAttributesMovies);
@@ -268,25 +262,33 @@ public class Admin {
                                             attrCondition = false;
                                         }
                                         case 2 -> {
-                                            Utilities.confirmHourMovie("PremiumMovie", txtHour);
+                                            Utilities.confirmHourMorMovie("PremiumMovie", txtHourMor);
                                             attrCondition = false;
                                         }
                                         case 3 -> {
-                                            Utilities.confirmStatisticsMovie("PremiumMovie", txtStatistics);
+                                            Utilities.confirmHourAftMovie("PremiumMovie", txtHourAft);
                                             attrCondition = false;
                                         }
                                         case 4 -> {
-                                            Utilities.confirmRatingMovie("PremiumMovie", txtRating);
+                                            Utilities.confirmHourNigMovie("PremiumMovie", txtHourNig);
                                             attrCondition = false;
                                         }
                                         case 5 -> {
+                                            Utilities.confirmStatisticsMovie("PremiumMovie", txtStatistics);
+                                            attrCondition = false;
+                                        }
+                                        case 6 -> {
+                                            Utilities.confirmRatingMovie("PremiumMovie", txtRating);
+                                            attrCondition = false;
+                                        }
+                                        case 7 -> {
                                             Utilities.confirmGenreMovie("PremiumMovie", txtGenre);
                                             attrCondition = false;
                                         }
                                         default -> System.out.println("Ingrese un numero de Atributo valido");
                                     }
+                                    condition = false;
                                 }
-                                condition = false;
                             }
                             default -> System.out.println("Ingrese un numero de sala valida");
                         }
@@ -308,16 +310,11 @@ public class Admin {
                                 condition = false;
                             }
                             case 3 -> {
-                                String[] data = DataBaseMovie.showInfoMovie("3DMovie1");
+                                String[] data = DataBaseMovie.showInfoMovie("3DMovie");
                                 System.out.println(Arrays.toString(data));
                                 condition = false;
                             }
                             case 4 -> {
-                                String[] data = DataBaseMovie.showInfoMovie("3DMovie2");
-                                System.out.println(Arrays.toString(data));
-                                condition = false;
-                            }
-                            case 5 -> {
                                 String[] data = DataBaseMovie.showInfoMovie("PremiumMovie");
                                 System.out.println(Arrays.toString(data));
                                 condition = false;
@@ -333,27 +330,40 @@ public class Admin {
                         switch (option) {
                             case 1 -> {
                                 String[] data = Utilities.auxCreateMovie();
-                                DataBaseMovie.create2DMovie(1, data[0], data[1], data[2], data[3], data[4]);
+                                DataBaseMovie.create2DMovie(1, data[0], data[1], data[2], data[3], data[4],
+                                        data[5], data[6]);
+                                Utilities saveImage = new Utilities();
+                                saveImage.searchImage();
+                                saveImage.saveImage("2DMovie1");
                                 condition = false;
                             }
                             case 2 -> {
                                 String[] data = Utilities.auxCreateMovie();
-                                DataBaseMovie.create2DMovie(2, data[0], data[1], data[2], data[3], data[4]);
+                                DataBaseMovie.create2DMovie(2, data[0], data[1], data[2], data[3], data[4],
+                                        data[5], data[6]);
+                                Utilities saveImage = new Utilities();
+                                saveImage.searchImage();
+                                saveImage.saveImage("2DMovie2");
                                 condition = false;
+                                
                             }
                             case 3 -> {
                                 String[] data = Utilities.auxCreateMovie();
-                                DataBaseMovie.create3DMovie(1, data[0], data[1], data[2], data[3], data[4]);
+                                DataBaseMovie.create3DMovie(data[0], data[1], data[2], data[3], data[4], data[5],
+                                        data[6]);
+                                Utilities saveImage = new Utilities();
+                                saveImage.searchImage();
+                                saveImage.saveImage("3DMovie");
                                 condition = false;
                             }
+
                             case 4 -> {
                                 String[] data = Utilities.auxCreateMovie();
-                                DataBaseMovie.create3DMovie(2, data[0], data[1], data[2], data[3], data[4]);
-                                condition = false;
-                            }
-                            case 5 -> {
-                                String[] data = Utilities.auxCreateMovie();
-                                DataBaseMovie.createPremiumMovie(data[0], data[1], data[2], data[3], data[4]);
+                                DataBaseMovie.createPremiumMovie(data[0], data[1], data[2], data[3], data[4], data[5],
+                                        data[6]);
+                                Utilities saveImage = new Utilities();
+                                saveImage.searchImage();
+                                saveImage.saveImage("PremiumMovie");
                                 condition = false;
                             }
                             default -> System.out.println("Ingrese un valor valido");
@@ -374,14 +384,10 @@ public class Admin {
                                 condition = false;
                             }
                             case 3 -> {
-                                DataBaseMovie.deleteMovies("3DMovie1");
+                                DataBaseMovie.deleteMovies("3DMovie");
                                 condition = false;
                             }
                             case 4 -> {
-                                DataBaseMovie.deleteMovies("3DMovie2");
-                                condition = false;
-                            }
-                            case 5 -> {
                                 DataBaseMovie.deleteMovies("PremiumMovie");
                                 condition = false;
                             }

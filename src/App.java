@@ -1,16 +1,12 @@
-import NetWork.DataBaseChallenges;
-import User.Customer;
 
-import java.util.Arrays;
-
-import static NetWork.DataBaseChallenges.showDailyTasks;
+import NetWork.DataBaseData;
+import Panels.HomeScreenLoget;
+import javax.swing.*;
+import java.sql.*;
 
 
 public class App {
     public static void main(String[] args) throws InterruptedException {
-        DataBaseChallenges.getWeeklyTasks();
-        DataBaseChallenges.saveUsersWeeklyTasks();
-        DataBaseChallenges.sendWeeklyTasks();
 
     }
 }
