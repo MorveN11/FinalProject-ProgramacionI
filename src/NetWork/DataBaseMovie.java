@@ -400,10 +400,10 @@ public class DataBaseMovie {
         return resultOperation;
     }
 
-    public static void buyTicket(String cinema, String column, String line) {
-
+    public static int buyTicket(String cinema, String column, String line) {
+        
+        int condition = 0;
         String statusSeat = checkSeat(cinema, column, line);
-        System.out.println(statusSeat);
         if(statusSeat.equals("D")) {
             int secure = JOptionPane.showConfirmDialog(null, """
                                                              El asiento esta disponible\040
@@ -411,17 +411,23 @@ public class DataBaseMovie {
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (JOptionPane.OK_OPTION == secure) {
                 String reserveSeat = reserveSeat(cinema, column, line);
-                if (reserveSeat.equals("Success"))
-                    JOptionPane.showMessageDialog(null, "La entrada se compro con Exito");
-                else JOptionPane.showMessageDialog(null, "Hubo un error al comprar la entrada" +
+                if (reserveSeat.equals("Success")) {
+                    JOptionPane.showMessageDialog(null, "La entrada se compro con Exito"); 
+                    condition = 1;
+                } else {
+                    JOptionPane.showMessageDialog(null, "Hubo un error al comprar la entrada" +
                         "intentelo nuevamenete");
+                }
             } else {
                 JOptionPane.showMessageDialog(null, "La compra se cancelo, " +
                         "muchas gracias por la Preferencia");
+                condition = 2;
             }
         } else {
             JOptionPane.showMessageDialog(null, "El asiento ya esta ocupado, lo sentimos");
+            condition = 0;
         }
+        return condition;
     }
 
     public static void deleteMovies(String movie) {

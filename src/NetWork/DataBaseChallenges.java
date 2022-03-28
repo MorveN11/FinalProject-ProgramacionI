@@ -16,8 +16,8 @@ public class DataBaseChallenges {
 
     public static String[][] dailyTasks;
     public static String[][] weeklyTasks;
-    public static int numberDailyTasks = 5;
-    public static int numberWeeklyTasks = 3;
+    public static int numberDailyTasks = 2;
+    public static int numberWeeklyTasks = 2;
 
     public static void cleanDataBaseChallenges() {
         DataBaseData.searchDataUsers();
@@ -186,8 +186,7 @@ public class DataBaseChallenges {
             searchDataUsers.setString(7, Customer.password);
             searchDataUsers.setString(8, Customer.popCoins);
             searchDataUsers.setString(9, Customer.loginCounter);
-            searchDataUsers.setString(10, "["+saveDailyTasks[0]+", "+saveDailyTasks[1]+", "+
-                    saveDailyTasks[2]+", "+saveDailyTasks[3]+", "+saveDailyTasks[4]+"]");
+            searchDataUsers.setString(10, "["+saveDailyTasks[0]+", "+saveDailyTasks[1]+"]");
             searchDataUsers.setString(11, Customer.weeklyChallenges);
             searchDataUsers.setString(12, Customer.chalaCoins);
             searchDataUsers.setByte(13, Customer.avatar);
@@ -407,8 +406,7 @@ public class DataBaseChallenges {
             searchDataUsers.setString(8, Customer.popCoins);
             searchDataUsers.setString(9, Customer.loginCounter);
             searchDataUsers.setString(10, Customer.dailyChallenges);
-            searchDataUsers.setString(11, "["+saveWeeklyTasks[0]+", "+saveWeeklyTasks[1]+", "+
-                    saveWeeklyTasks[2]+"]");
+            searchDataUsers.setString(11, "["+saveWeeklyTasks[0]+", "+saveWeeklyTasks[1]+"]");
             searchDataUsers.setString(12, Customer.chalaCoins);
             searchDataUsers.setByte(13, Customer.avatar);
             searchDataUsers.executeUpdate();

@@ -198,10 +198,13 @@ public class Login extends javax.swing.JFrame {
                 DataBaseData.searchUser(txtUserName.getText());
                 JOptionPane.showMessageDialog(this, "Bienvenid@ \n" + Customer.name +" "+Customer.lastName+" AEA");
                 statusLogin = true;
+                Customer.dailyChallenges = Utilities.giveDailyTasks();
+                Customer.weeklyTasks = Utilities.giveWeeklyTasks();
                 HomeScreenLoget show = new HomeScreenLoget();
                 show.setVisible(true);
                 show.nameShow.setText(Customer.name + " " + Customer.lastName);
                 this.dispose();
+                
             } else {
                 JOptionPane.showMessageDialog(this, "Que fue causa Gaaa,"
                         + " favor registrarse");

@@ -49,6 +49,7 @@ public class Admin {
                 2. 2DMovie2
                 3. 3DMovie
                 4. PremiumMovie
+                5. Salir
                 """;
     public static String menuDeleteMovies = """
                 \nQue sala desea eliminar?\s
@@ -56,6 +57,7 @@ public class Admin {
                 2. 2DMovie2
                 3. 3DMovie
                 4. PremiumMovie
+                5. Salir
                 """;
     public static String menuReadMovies = """
                 \nQue sala desea leer?\s
@@ -63,6 +65,7 @@ public class Admin {
                  2. 2DMovie2
                  3. 3DMovie
                  4. PremiumMovie
+                 5. Salir
                  """;
     public static String menuUpdateMovies = """
                 \nQue sala desea actualizar?\s
@@ -70,6 +73,8 @@ public class Admin {
                  2. 2DMovie2
                  3. 3DMovie
                  4. PremiumMovie
+                 5. Salir
+                 
                  """;
     public static String menuAttributesMovies = """
                 \nQue atributo desea actualizar?\s
@@ -307,6 +312,7 @@ public class Admin {
                                     condition = false;
                                 }
                             }
+                            case 5 -> condition = false;
                             default -> System.out.println("Ingrese un numero de sala valida");
                         }
                     }
@@ -332,6 +338,7 @@ public class Admin {
                                 Utilities.showMovie("PremiumMovie");
                                 condition = false;
                             }
+                            case 5 -> condition = false;
                             default -> System.out.println("Ingrese una sala valida");
                         }
                     }
@@ -359,6 +366,7 @@ public class Admin {
                                 Utilities.auxCreatePremiumMovie();
                                 condition = false;
                             }
+                            case 5 -> condition = false;
                             default -> System.out.println("Ingrese un valor valido");
                         }
                     }
@@ -384,6 +392,7 @@ public class Admin {
                                 DataBaseMovie.deleteMovies("PremiumMovie");
                                 condition = false;
                             }
+                            case 5 -> condition = false;
                             default -> System.out.println("Ingrese un valor valido");
                         }
                     }

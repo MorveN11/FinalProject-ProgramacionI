@@ -4,7 +4,14 @@
  */
 package Panels;
 
+
 import NetWork.DataBaseMovie;
+import User.Customer;
+import Utility.Utilities;
+import java.util.Objects;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
+import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
 
 /**
  *
@@ -28,73 +35,151 @@ public class BuyTickets extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtColumn = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtLine = new javax.swing.JTextField();
         btnBuyTicket = new javax.swing.JButton();
+        Sala = new javax.swing.JLabel();
+        countTickets = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Columna");
+        jLabel1.setText("¿Cuantas entradas quiere?");
 
-        jLabel2.setText("Line");
-
-        txtLine.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLineActionPerformed(evt);
-            }
-        });
-
-        btnBuyTicket.setText("Comprar Entrada");
+        btnBuyTicket.setText("Comprar Entrada(s)");
         btnBuyTicket.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuyTicketActionPerformed(evt);
             }
         });
 
+        countTickets.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtColumn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(txtLine, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBuyTicket)
-                .addGap(51, 51, 51))
+                .addComponent(Sala, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(countTickets, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(119, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBuyTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addContainerGap()
+                .addComponent(Sala, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(txtColumn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(txtLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(countTickets, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addComponent(btnBuyTicket)
-                .addGap(28, 28, 28))
+                .addGap(57, 57, 57))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(308, 258));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtLineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLineActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLineActionPerformed
-
+    @SuppressWarnings("empty-statement")
     private void btnBuyTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyTicketActionPerformed
-        DataBaseMovie.buyTicket("2DMovie2", txtColumn.getText(), txtLine.getText());
+        
+        int price;
+        String nameMovie;
+        int tickets = Integer.parseInt((String) Objects.requireNonNull(countTickets.getSelectedItem()));
+        String[] abc;
+        abc = switch (HomeScreenLoget.cinema) {
+            case "2DMovie1", "2DMovie2" -> new String[]{"A", "B", "C", "D", "E", "F"};
+            case "3DMovie" -> new String[]{"A", "B", "C", "D", "E", "F", "G", "H"};
+            default -> new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
+        };
+        
+        if (HomeScreenLoget.cinema.equals("2DMovie1")) {
+            price = 25;
+            nameMovie = Utilities.name2DMovie1;
+        } else if (HomeScreenLoget.cinema.equals("2DMovie2")) {
+            price = 25;
+            nameMovie = Utilities.name2DMovie2;
+        } else if (HomeScreenLoget.cinema.equals("3DMovie")) {
+            price = 35;
+            nameMovie = Utilities.name3DMovie;
+        } else {
+            price = 45;
+            nameMovie = Utilities.namePM;
+        }
+        
+        int count = 0;
+        do {
+            int condition;
+            do {
+            String column = JOptionPane.showInputDialog(null, "Que Columna solicita '" +
+                    "seleccione valores entre ("+abc[0]+", "+abc[1]+"....."+abc[abc.length-1]+")'", null, INFORMATION_MESSAGE);
+            String line = JOptionPane.showInputDialog(null, "Que Fila solicita '" +
+                    "seleccione valores entre ("+abc[0]+", "+abc[1]+"....."+abc[abc.length-1]+")'", null, INFORMATION_MESSAGE);
+        if (column != null && line != null) {
+            condition = DataBaseMovie.buyTicket(HomeScreenLoget.cinema, column, line);
+            switch(condition) {
+                case 1 -> {
+                    break;
+                }
+                case 2 -> {
+                    tickets--;
+                    JOptionPane.showMessageDialog(null, "Cancelo la compra", 
+                            null, ERROR_MESSAGE);
+                }
+                case 0 -> {
+                    JOptionPane.showMessageDialog(null, "Seleccion otro Asiento, Gracias");
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "La compra se cancelo!",
+                    null, ERROR_MESSAGE);
+            break;
+        }
+            }while(condition == 0);
+        count++;
+        }while(count < tickets);
+        price *= tickets;
+        JOptionPane.showMessageDialog(null, "Total gastado: "+price+"$\nMuchas gracias: "+Customer.name+" "+Customer.lastName+"\n"
+                + "Por la compra de "+tickets+"boleto(s)", null, INFORMATION_MESSAGE);
+        switch (tickets) {
+            case 5 -> {
+                Customer.popCoins += 50;
+                JOptionPane.showMessageDialog(null, Customer.name+" "+Customer.lastName+" Gano 50 puntos "
+                        + "por la compra de 5 entradas ¡Felicidades!", null, INFORMATION_MESSAGE);
+            }
+            case 4 -> {
+                Customer.popCoins += 25;
+                JOptionPane.showMessageDialog(null, Customer.name+" "+Customer.lastName+" Gano 25 puntos "
+                        + "por la compra de 4 entradas ¡Felicidades!", null, INFORMATION_MESSAGE);
+            }
+            case 3  -> {
+                Customer.popCoins += 25;
+                JOptionPane.showMessageDialog(null, Customer.name+" "+Customer.lastName+" Gano 25 puntos "
+                        + "por la compra de 3 entradas ¡Felicidades!", null, INFORMATION_MESSAGE);
+            }
+            case 2 -> {
+                Customer.popCoins += 10;
+                JOptionPane.showMessageDialog(null, Customer.name+" "+Customer.lastName+" Gano 10 puntos "
+                        + "por la compra de 2 entradas ¡Felicidades!", null, INFORMATION_MESSAGE);
+            }
+    
+        }
+        
+        Customer.updatePopCoins();
+        Utilities.commentMovie(nameMovie);
+        Utilities.rankingMovie(nameMovie);
+        
+        
         this.dispose();
     }//GEN-LAST:event_btnBuyTicketActionPerformed
 
@@ -134,10 +219,12 @@ public class BuyTickets extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel Sala;
     private javax.swing.JButton btnBuyTicket;
+    private javax.swing.JComboBox<String> countTickets;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField txtColumn;
-    private javax.swing.JTextField txtLine;
     // End of variables declaration//GEN-END:variables
+
+
+
 }

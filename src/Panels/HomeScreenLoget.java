@@ -4,19 +4,9 @@
  */
 package Panels;
 
-import NetWork.DataBaseData;
-import com.mysql.jdbc.Connection;
+
+import Utility.Utilities;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.sql.Blob;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -26,14 +16,14 @@ import javax.swing.ImageIcon;
  */
 public class HomeScreenLoget extends javax.swing.JFrame {
 
-    /**
-     * Creates new form HomeScreen
-     */
+
+    public static String cinema;
     public HomeScreenLoget() {
         initComponents();
-        load2DMovie1();
+        loadCinema();
+     
        
-  
+
     }
 
     /**
@@ -45,56 +35,236 @@ public class HomeScreenLoget extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        HourMorSala1 = new javax.swing.JLabel();
+        price2D = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        BuySala1 = new javax.swing.JButton();
-        NameSala1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        ImageSala2 = new javax.swing.JLabel();
+        ImageSala4 = new javax.swing.JLabel();
+        NameSala4 = new javax.swing.JLabel();
+        HourMorSala4 = new javax.swing.JLabel();
+        HourAftSala4 = new javax.swing.JLabel();
+        HourNigSala4 = new javax.swing.JLabel();
+        GenreSala4 = new javax.swing.JLabel();
+        TypeSala4 = new javax.swing.JLabel();
+        BuySala4 = new javax.swing.JButton();
+        btnBuy3DMovie = new javax.swing.JButton();
+        NameSala2 = new javax.swing.JLabel();
+        HourMorSala2 = new javax.swing.JLabel();
+        HourAftSala2 = new javax.swing.JLabel();
+        HourNigSala2 = new javax.swing.JLabel();
+        GenreSala2 = new javax.swing.JLabel();
+        TypeSala2 = new javax.swing.JLabel();
+        btnBuy2DMovie2 = new javax.swing.JButton();
+        NameSala3 = new javax.swing.JLabel();
+        HourMorSala3 = new javax.swing.JLabel();
+        HourAftSala3 = new javax.swing.JLabel();
+        HourNigSala3 = new javax.swing.JLabel();
+        GenreSala3 = new javax.swing.JLabel();
+        TypeSala3 = new javax.swing.JLabel();
+        ImageSala3 = new javax.swing.JLabel();
+        price3D = new javax.swing.JLabel();
         ImageSala1 = new javax.swing.JLabel();
+        NameSala1 = new javax.swing.JLabel();
+        HourMorSala1 = new javax.swing.JLabel();
+        HourNigSala1 = new javax.swing.JLabel();
+        HourAftSala1 = new javax.swing.JLabel();
         GenreSala1 = new javax.swing.JLabel();
-        RoomsBackground = new javax.swing.JLabel();
+        TypeSala1 = new javax.swing.JLabel();
+        btnBuy2DMovie1 = new javax.swing.JButton();
+        pricePM = new javax.swing.JLabel();
         Prices = new javax.swing.JLabel();
         Billboard = new javax.swing.JLabel();
         Gray = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        RoomsBackground = new javax.swing.JLabel();
         nameShow = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        btnProfile = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Team Tryhards 322");
         setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(null);
 
-        HourMorSala1.setText("a");
-        getContentPane().add(HourMorSala1);
-        HourMorSala1.setBounds(240, 220, 120, 20);
+        price2D.setFont(new java.awt.Font("Georgia", 0, 36)); // NOI18N
+        price2D.setForeground(new java.awt.Color(255, 255, 255));
+        price2D.setText("25 $");
+        getContentPane().add(price2D);
+        price2D.setBounds(100, 850, 70, 40);
 
-        jLabel5.setText("jLabel5");
+        jLabel5.setFont(new java.awt.Font("Georgia", 0, 22)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel5.setText("10");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(240, 290, 110, 30);
+        jLabel5.setBounds(610, 810, 30, 26);
 
-        jLabel4.setText("jLabel4");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(240, 250, 120, 30);
+        jLabel6.setFont(new java.awt.Font("Georgia", 0, 22)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel6.setText("25");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(610, 840, 30, 26);
 
-        BuySala1.setText("Comprar");
-        getContentPane().add(BuySala1);
-        BuySala1.setBounds(270, 380, 100, 22);
+        jLabel7.setFont(new java.awt.Font("Georgia", 0, 22)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel7.setText("50");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(610, 860, 40, 30);
+        getContentPane().add(ImageSala2);
+        ImageSala2.setBounds(60, 450, 160, 250);
+        getContentPane().add(ImageSala4);
+        ImageSala4.setBounds(500, 460, 170, 250);
 
-        NameSala1.setText("a");
-        getContentPane().add(NameSala1);
-        NameSala1.setBounds(240, 190, 110, 20);
+        NameSala4.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(NameSala4);
+        NameSala4.setBounds(680, 500, 120, 20);
+
+        HourMorSala4.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourMorSala4);
+        HourMorSala4.setBounds(680, 530, 120, 20);
+
+        HourAftSala4.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourAftSala4);
+        HourAftSala4.setBounds(680, 560, 120, 20);
+
+        HourNigSala4.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourNigSala4);
+        HourNigSala4.setBounds(680, 590, 120, 20);
+
+        GenreSala4.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(GenreSala4);
+        GenreSala4.setBounds(680, 620, 120, 20);
+
+        TypeSala4.setFont(new java.awt.Font("Eras Demi ITC", 0, 16)); // NOI18N
+        getContentPane().add(TypeSala4);
+        TypeSala4.setBounds(680, 650, 120, 20);
+
+        BuySala4.setText("Comprar Entradas");
+        BuySala4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuySala4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BuySala4);
+        BuySala4.setBounds(680, 690, 130, 22);
+
+        btnBuy3DMovie.setText("Comprar Entradas");
+        btnBuy3DMovie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuy3DMovieActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBuy3DMovie);
+        btnBuy3DMovie.setBounds(680, 380, 130, 22);
+
+        NameSala2.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(NameSala2);
+        NameSala2.setBounds(240, 490, 130, 20);
+
+        HourMorSala2.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourMorSala2);
+        HourMorSala2.setBounds(240, 520, 130, 20);
+
+        HourAftSala2.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourAftSala2);
+        HourAftSala2.setBounds(240, 550, 130, 20);
+
+        HourNigSala2.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourNigSala2);
+        HourNigSala2.setBounds(240, 580, 130, 20);
+
+        GenreSala2.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(GenreSala2);
+        GenreSala2.setBounds(240, 610, 130, 20);
+
+        TypeSala2.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(TypeSala2);
+        TypeSala2.setBounds(240, 640, 130, 20);
+
+        btnBuy2DMovie2.setText("Comprar Entradas");
+        btnBuy2DMovie2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuy2DMovie2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBuy2DMovie2);
+        btnBuy2DMovie2.setBounds(235, 670, 140, 22);
+
+        NameSala3.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(NameSala3);
+        NameSala3.setBounds(680, 200, 120, 20);
+
+        HourMorSala3.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourMorSala3);
+        HourMorSala3.setBounds(680, 230, 120, 20);
+
+        HourAftSala3.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourAftSala3);
+        HourAftSala3.setBounds(680, 260, 120, 20);
+
+        HourNigSala3.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourNigSala3);
+        HourNigSala3.setBounds(680, 290, 120, 20);
+
+        GenreSala3.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(GenreSala3);
+        GenreSala3.setBounds(680, 320, 120, 20);
+
+        TypeSala3.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(TypeSala3);
+        TypeSala3.setBounds(680, 350, 120, 20);
+        getContentPane().add(ImageSala3);
+        ImageSala3.setBounds(500, 150, 170, 250);
+
+        price3D.setFont(new java.awt.Font("Georgia", 0, 36)); // NOI18N
+        price3D.setForeground(new java.awt.Color(255, 255, 255));
+        price3D.setText("35 $");
+        getContentPane().add(price3D);
+        price3D.setBounds(210, 850, 70, 40);
         getContentPane().add(ImageSala1);
-        ImageSala1.setBounds(60, 160, 160, 240);
+        ImageSala1.setBounds(60, 150, 160, 250);
 
-        GenreSala1.setText("a");
+        NameSala1.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(NameSala1);
+        NameSala1.setBounds(240, 200, 130, 20);
+
+        HourMorSala1.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourMorSala1);
+        HourMorSala1.setBounds(240, 230, 130, 20);
+
+        HourNigSala1.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourNigSala1);
+        HourNigSala1.setBounds(240, 260, 130, 20);
+
+        HourAftSala1.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourAftSala1);
+        HourAftSala1.setBounds(240, 290, 130, 20);
+
+        GenreSala1.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
         getContentPane().add(GenreSala1);
-        GenreSala1.setBounds(240, 340, 120, 20);
+        GenreSala1.setBounds(240, 320, 130, 20);
 
-        RoomsBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomsBackground .jpeg"))); // NOI18N
-        getContentPane().add(RoomsBackground);
-        RoomsBackground.setBounds(-10, 130, 870, 630);
+        TypeSala1.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(TypeSala1);
+        TypeSala1.setBounds(240, 350, 130, 20);
+
+        btnBuy2DMovie1.setText("Comprar Entradas");
+        btnBuy2DMovie1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuy2DMovie1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBuy2DMovie1);
+        btnBuy2DMovie1.setBounds(240, 380, 140, 22);
+
+        pricePM.setFont(new java.awt.Font("Georgia", 0, 36)); // NOI18N
+        pricePM.setForeground(new java.awt.Color(255, 255, 255));
+        pricePM.setText("45 $");
+        getContentPane().add(pricePM);
+        pricePM.setBounds(310, 850, 70, 41);
 
         Prices.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Prices.jpeg"))); // NOI18N
         getContentPane().add(Prices);
@@ -108,6 +278,7 @@ public class HomeScreenLoget extends javax.swing.JFrame {
         getContentPane().add(Gray);
         Gray.setBounds(780, 50, 90, 80);
 
+        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PricesSign.jpeg"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 766, 870, 150);
@@ -117,18 +288,75 @@ public class HomeScreenLoget extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(10, 5, 460, 40);
 
+        RoomsBackground.setBackground(java.awt.Color.white);
+        RoomsBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomsBackground .jpeg"))); // NOI18N
+        getContentPane().add(RoomsBackground);
+        RoomsBackground.setBounds(-10, 130, 870, 630);
+
         nameShow.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         getContentPane().add(nameShow);
-        nameShow.setBounds(590, 10, 250, 30);
+        nameShow.setBounds(590, 10, 150, 30);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel3.setText("Bienvenido:");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(500, 10, 80, 30);
 
+        jButton1.setText("jButton1");
+        getContentPane().add(jButton1);
+        jButton1.setBounds(720, 390, 75, 22);
+
+        jLabel4.setText("jLabel4");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(230, 210, 50, 16);
+
+        btnProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/DefaultUser.jpg"))); // NOI18N
+        btnProfile.setContentAreaFilled(false);
+        btnProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProfileActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnProfile);
+        btnProfile.setBounds(740, 10, 40, 30);
+
         setSize(new java.awt.Dimension(864, 943));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuy3DMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuy3DMovieActionPerformed
+        cinema = "3DMovie";
+        BuyTickets show = new BuyTickets();
+        show.Sala.setText(Utilities.name3DMovie);
+        show.setVisible(true);
+    }//GEN-LAST:event_btnBuy3DMovieActionPerformed
+
+    private void btnBuy2DMovie1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuy2DMovie1ActionPerformed
+        cinema = "2DMovie1";
+        BuyTickets show = new BuyTickets();
+        show.Sala.setText(Utilities.name2DMovie1);
+        show.setVisible(true);
+    }//GEN-LAST:event_btnBuy2DMovie1ActionPerformed
+
+    private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
+        Profile show = new Profile();
+        show.setVisible(true);
+        
+    }//GEN-LAST:event_btnProfileActionPerformed
+
+    private void btnBuy2DMovie2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuy2DMovie2ActionPerformed
+        cinema = "2DMovie2";
+        BuyTickets show = new BuyTickets();
+        show.Sala.setText(Utilities.name2DMovie2);
+        show.setVisible(true);
+    }//GEN-LAST:event_btnBuy2DMovie2ActionPerformed
+
+    private void BuySala4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuySala4ActionPerformed
+        cinema = "PremiumMovie";
+        BuyTickets show = new BuyTickets();
+        show.Sala.setText(Utilities.namePM);
+        show.setVisible(true);
+    }//GEN-LAST:event_BuySala4ActionPerformed
    
     /**
      * @param args the command line arguments
@@ -168,53 +396,92 @@ public class HomeScreenLoget extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Billboard;
-    private javax.swing.JButton BuySala1;
+    private javax.swing.JButton BuySala4;
     public javax.swing.JLabel GenreSala1;
+    private javax.swing.JLabel GenreSala2;
+    private javax.swing.JLabel GenreSala3;
+    private javax.swing.JLabel GenreSala4;
     private javax.swing.JLabel Gray;
+    private javax.swing.JLabel HourAftSala1;
+    private javax.swing.JLabel HourAftSala2;
+    private javax.swing.JLabel HourAftSala3;
+    private javax.swing.JLabel HourAftSala4;
     public javax.swing.JLabel HourMorSala1;
+    private javax.swing.JLabel HourMorSala2;
+    private javax.swing.JLabel HourMorSala3;
+    private javax.swing.JLabel HourMorSala4;
+    private javax.swing.JLabel HourNigSala1;
+    private javax.swing.JLabel HourNigSala2;
+    private javax.swing.JLabel HourNigSala3;
+    private javax.swing.JLabel HourNigSala4;
     public javax.swing.JLabel ImageSala1;
+    private javax.swing.JLabel ImageSala2;
+    private javax.swing.JLabel ImageSala3;
+    private javax.swing.JLabel ImageSala4;
     public javax.swing.JLabel NameSala1;
+    private javax.swing.JLabel NameSala2;
+    private javax.swing.JLabel NameSala3;
+    private javax.swing.JLabel NameSala4;
     private javax.swing.JLabel Prices;
     private javax.swing.JLabel RoomsBackground;
+    private javax.swing.JLabel TypeSala1;
+    private javax.swing.JLabel TypeSala2;
+    private javax.swing.JLabel TypeSala3;
+    private javax.swing.JLabel TypeSala4;
+    private javax.swing.JButton btnBuy2DMovie1;
+    private javax.swing.JButton btnBuy2DMovie2;
+    private javax.swing.JButton btnBuy3DMovie;
+    private javax.swing.JButton btnProfile;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     public javax.swing.JLabel nameShow;
+    private javax.swing.JLabel price2D;
+    private javax.swing.JLabel price3D;
+    private javax.swing.JLabel pricePM;
     // End of variables declaration//GEN-END:variables
 
-    private void load2DMovie1() {
-        java.sql.Connection connection;
-        String dbMovie = "SELECT NameMovie, Hour, Genre, Image FROM 2DMovie1";
+   
+    private void loadCinema() {
+        NameSala1.setText(Utilities.name2DMovie1);
+        HourMorSala1.setText(Utilities.hourMor2DMovie1);
+        HourAftSala1.setText(Utilities.hourAft2DMovie1);
+        HourNigSala1.setText(Utilities.hourNig2DMovie1);
+        GenreSala1.setText(Utilities.genre2DMovie1);
+        TypeSala1.setText(Utilities.type2DMovie1);
+        Icon image2DMovie1 = new ImageIcon(Utilities.image2DMovie1.getImage().getScaledInstance(ImageSala1.getWidth(), ImageSala1.getHeight(), Image.SCALE_DEFAULT));
+        ImageSala1.setIcon(image2DMovie1);
         
-        try {
-            connection = DataBaseData.connect();
-            PreparedStatement searchData = connection.prepareStatement(dbMovie);
-            ResultSet resultSearch = searchData.executeQuery();
-            if(resultSearch.next()) {
-                NameSala1.setText(resultSearch.getString("NameMovie"));
-                HourMorSala1.setText(resultSearch.getString("Hour"));
-                GenreSala1.setText(resultSearch.getString("Genre"));
-                Blob blob = resultSearch.getBlob("Image");
-                byte[] data = blob.getBytes(1, (int) blob.length());
-                BufferedImage img = null;
-                    try {
-                        img = ImageIO.read(new ByteArrayInputStream(data));
-                    } catch (IOException e) {
-                        Logger.getLogger(HomeScreenLoget.class.getName()).log(Level.SEVERE, null, e);
-                    }
-                    
-                    ImageIcon icono = new ImageIcon(img);
-                    Icon imagen = new ImageIcon(icono.getImage().getScaledInstance(ImageSala1.getWidth(), ImageSala1.getHeight(), Image.SCALE_DEFAULT));
-                    ImageSala1.setIcon(imagen);
-            }
-            connection.close();
-         
-         
-        } catch(SQLException e) {
-            
-            System.out.println(e);
-        } 
+        NameSala2.setText(Utilities.name2DMovie2);
+        HourMorSala2.setText(Utilities.hourMor2DMovie2);
+        HourAftSala2.setText(Utilities.hourAft2DMovie2);
+        HourNigSala2.setText(Utilities.hourNig2DMovie2);
+        GenreSala2.setText(Utilities.genre2DMovie2);
+        TypeSala2.setText(Utilities.type2DMovie2);
+        Icon image2DMovie2 = new ImageIcon(Utilities.image2DMovie2.getImage().getScaledInstance(ImageSala2.getWidth(), ImageSala2.getHeight(), Image.SCALE_DEFAULT));
+        ImageSala2.setIcon(image2DMovie2);
+        
+        NameSala3.setText(Utilities.name3DMovie);
+        HourMorSala3.setText(Utilities.hourMor3DMovie);
+        HourAftSala3.setText(Utilities.hourAft3DMovie);
+        HourNigSala3.setText(Utilities.hourNig3DMovie);
+        GenreSala3.setText(Utilities.genre3DMovie);
+        TypeSala3.setText(Utilities.type3DMovie);
+        Icon image3DMovie = new ImageIcon(Utilities.image3DMovie.getImage().getScaledInstance(ImageSala3.getWidth(), ImageSala3.getHeight(), Image.SCALE_DEFAULT));
+        ImageSala3.setIcon(image3DMovie);
+        
+        NameSala4.setText(Utilities.namePM);
+        HourMorSala4.setText(Utilities.hourMorPM);
+        HourAftSala4.setText(Utilities.hourAftPM);
+        HourNigSala4.setText(Utilities.hourNigPM);
+        GenreSala4.setText(Utilities.genrePM);
+        TypeSala4.setText(Utilities.typePM);
+        Icon imagePM = new ImageIcon(Utilities.imagePM.getImage().getScaledInstance(ImageSala4.getWidth(), ImageSala4.getHeight(), Image.SCALE_DEFAULT));
+        ImageSala4.setIcon(imagePM);
     }
 }

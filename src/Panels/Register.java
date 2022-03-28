@@ -302,6 +302,8 @@ public class Register extends javax.swing.JFrame {
                         Customer.email = txtEmail.getText();
                         Customer.userName = txtUserName.getText();
                         Customer.cellPhone = txtCellPhone.getText();
+                        Customer.chalaCoins = "100";
+                        Customer.popCoins = "0";
                         Login.statusLogin = true;
                         HomeScreenLoget show = new HomeScreenLoget();
                         show.nameShow.setText(Customer.name + " " + Customer.lastName);

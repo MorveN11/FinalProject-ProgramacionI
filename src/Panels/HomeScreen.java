@@ -4,6 +4,13 @@
  */
 package Panels;
 
+
+import Utility.Utilities;
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
+
 /**
  *
  * @author Diego
@@ -14,7 +21,10 @@ public class HomeScreen extends javax.swing.JFrame {
      * Creates new form HomeScreen
      */
     public HomeScreen() {
+
+
         initComponents();
+        loadCinema();
     }
 
     /**
@@ -26,14 +36,51 @@ public class HomeScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        btnBuy3DMovie = new javax.swing.JButton();
+        btnBuy2DMovie1 = new javax.swing.JButton();
+        btnBuy2DMovie2 = new javax.swing.JButton();
+        btnBuyPM = new javax.swing.JButton();
+        NameSala4 = new javax.swing.JLabel();
+        HourMorSala4 = new javax.swing.JLabel();
+        HourAftSala4 = new javax.swing.JLabel();
+        HourNigSala4 = new javax.swing.JLabel();
+        GenreSala4 = new javax.swing.JLabel();
+        TypeSala4 = new javax.swing.JLabel();
+        NameSala2 = new javax.swing.JLabel();
+        HourMorSala2 = new javax.swing.JLabel();
+        HourAftSala2 = new javax.swing.JLabel();
+        HourNigSala2 = new javax.swing.JLabel();
+        GenreSala2 = new javax.swing.JLabel();
+        TypeSala2 = new javax.swing.JLabel();
+        NameSala3 = new javax.swing.JLabel();
+        HourMorSala3 = new javax.swing.JLabel();
+        HourAftSala3 = new javax.swing.JLabel();
+        HourNigSala3 = new javax.swing.JLabel();
+        GenreSala3 = new javax.swing.JLabel();
+        TypeSala3 = new javax.swing.JLabel();
+        TypeSala1 = new javax.swing.JLabel();
+        NameSala1 = new javax.swing.JLabel();
+        HourMorSala1 = new javax.swing.JLabel();
+        HourAftSala1 = new javax.swing.JLabel();
+        HourNigSala1 = new javax.swing.JLabel();
+        GenreSala1 = new javax.swing.JLabel();
+        ImageSala1 = new javax.swing.JLabel();
+        ImageSala3 = new javax.swing.JLabel();
+        ImageSala2 = new javax.swing.JLabel();
+        ImageSala4 = new javax.swing.JLabel();
         Prices = new javax.swing.JLabel();
-        RoomsBackground = new javax.swing.JLabel();
         Billboard = new javax.swing.JLabel();
         Gray = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
         btnRegister = new javax.swing.JButton();
+        RoomsBackground = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -41,13 +88,185 @@ public class HomeScreen extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(null);
 
+        jLabel3.setFont(new java.awt.Font("Georgia", 0, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("25$");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(100, 850, 70, 40);
+
+        jLabel6.setFont(new java.awt.Font("Georgia", 0, 22)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel6.setText("10");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(610, 810, 30, 30);
+
+        jLabel7.setFont(new java.awt.Font("Georgia", 0, 22)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel7.setText("25");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(610, 830, 30, 30);
+
+        jLabel8.setFont(new java.awt.Font("Georgia", 0, 22)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel8.setText("50");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(610, 860, 30, 30);
+
+        jLabel4.setFont(new java.awt.Font("Georgia", 0, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("35$");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(210, 850, 70, 40);
+
+        jLabel5.setFont(new java.awt.Font("Georgia", 0, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("45$");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(310, 850, 70, 40);
+
+        btnBuy3DMovie.setText("Comprar Entradas");
+        btnBuy3DMovie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuy3DMovieActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBuy3DMovie);
+        btnBuy3DMovie.setBounds(685, 380, 130, 22);
+
+        btnBuy2DMovie1.setText("Comprar Entradas");
+        btnBuy2DMovie1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuy2DMovie1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBuy2DMovie1);
+        btnBuy2DMovie1.setBounds(250, 380, 140, 22);
+
+        btnBuy2DMovie2.setText("Comprar Entradas");
+        btnBuy2DMovie2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuy2DMovie2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBuy2DMovie2);
+        btnBuy2DMovie2.setBounds(250, 680, 140, 22);
+
+        btnBuyPM.setText("Comprar Entradas");
+        btnBuyPM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuyPMActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBuyPM);
+        btnBuyPM.setBounds(685, 690, 130, 22);
+
+        NameSala4.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(NameSala4);
+        NameSala4.setBounds(690, 510, 120, 20);
+
+        HourMorSala4.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourMorSala4);
+        HourMorSala4.setBounds(690, 540, 120, 20);
+
+        HourAftSala4.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourAftSala4);
+        HourAftSala4.setBounds(690, 570, 120, 20);
+
+        HourNigSala4.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourNigSala4);
+        HourNigSala4.setBounds(690, 600, 120, 20);
+
+        GenreSala4.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(GenreSala4);
+        GenreSala4.setBounds(690, 630, 120, 20);
+
+        TypeSala4.setFont(new java.awt.Font("Eras Demi ITC", 0, 16)); // NOI18N
+        getContentPane().add(TypeSala4);
+        TypeSala4.setBounds(690, 660, 120, 20);
+
+        NameSala2.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(NameSala2);
+        NameSala2.setBounds(250, 500, 140, 20);
+
+        HourMorSala2.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourMorSala2);
+        HourMorSala2.setBounds(250, 530, 140, 20);
+
+        HourAftSala2.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourAftSala2);
+        HourAftSala2.setBounds(250, 560, 140, 20);
+
+        HourNigSala2.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourNigSala2);
+        HourNigSala2.setBounds(250, 590, 140, 20);
+
+        GenreSala2.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(GenreSala2);
+        GenreSala2.setBounds(250, 620, 140, 20);
+
+        TypeSala2.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(TypeSala2);
+        TypeSala2.setBounds(250, 650, 140, 20);
+
+        NameSala3.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(NameSala3);
+        NameSala3.setBounds(690, 200, 120, 20);
+
+        HourMorSala3.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourMorSala3);
+        HourMorSala3.setBounds(690, 230, 120, 20);
+
+        HourAftSala3.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourAftSala3);
+        HourAftSala3.setBounds(690, 260, 120, 20);
+
+        HourNigSala3.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourNigSala3);
+        HourNigSala3.setBounds(690, 290, 120, 20);
+
+        GenreSala3.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(GenreSala3);
+        GenreSala3.setBounds(690, 320, 120, 20);
+
+        TypeSala3.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(TypeSala3);
+        TypeSala3.setBounds(690, 350, 120, 20);
+
+        TypeSala1.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(TypeSala1);
+        TypeSala1.setBounds(250, 350, 140, 20);
+
+        NameSala1.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(NameSala1);
+        NameSala1.setBounds(250, 200, 140, 20);
+
+        HourMorSala1.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourMorSala1);
+        HourMorSala1.setBounds(250, 230, 140, 20);
+
+        HourAftSala1.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourAftSala1);
+        HourAftSala1.setBounds(250, 260, 140, 20);
+
+        HourNigSala1.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(HourNigSala1);
+        HourNigSala1.setBounds(250, 290, 140, 20);
+
+        GenreSala1.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        getContentPane().add(GenreSala1);
+        GenreSala1.setBounds(250, 320, 140, 20);
+        getContentPane().add(ImageSala1);
+        ImageSala1.setBounds(70, 160, 160, 250);
+        getContentPane().add(ImageSala3);
+        ImageSala3.setBounds(510, 160, 170, 250);
+        getContentPane().add(ImageSala2);
+        ImageSala2.setBounds(70, 450, 160, 250);
+        getContentPane().add(ImageSala4);
+        ImageSala4.setBounds(510, 466, 170, 250);
+
         Prices.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Prices.jpeg"))); // NOI18N
         getContentPane().add(Prices);
         Prices.setBounds(0, 720, 210, 50);
-
-        RoomsBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomsBackground .jpeg"))); // NOI18N
-        getContentPane().add(RoomsBackground);
-        RoomsBackground.setBounds(0, 133, 870, 630);
 
         Billboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BillboardTop.jpeg"))); // NOI18N
         getContentPane().add(Billboard);
@@ -60,10 +279,6 @@ public class HomeScreen extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PricesSign.jpeg"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 766, 870, 150);
-
-        jButton1.setText("jButton1");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(290, 210, 83, 24);
 
         btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btnLogin.jpeg"))); // NOI18N
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -82,6 +297,10 @@ public class HomeScreen extends javax.swing.JFrame {
         });
         getContentPane().add(btnRegister);
         btnRegister.setBounds(520, 10, 140, 30);
+
+        RoomsBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomsBackground .jpeg"))); // NOI18N
+        getContentPane().add(RoomsBackground);
+        RoomsBackground.setBounds(0, 133, 870, 630);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Yo Programo Bien, Sino llame a este Numero: 72414837");
@@ -103,6 +322,30 @@ public class HomeScreen extends javax.swing.JFrame {
         show.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnBuy2DMovie1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuy2DMovie1ActionPerformed
+        Login show = new Login();
+        show.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnBuy2DMovie1ActionPerformed
+
+    private void btnBuy3DMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuy3DMovieActionPerformed
+        Login show = new Login();
+        show.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnBuy3DMovieActionPerformed
+
+    private void btnBuy2DMovie2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuy2DMovie2ActionPerformed
+        Login show = new Login();
+        show.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnBuy2DMovie2ActionPerformed
+
+    private void btnBuyPMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyPMActionPerformed
+        Login show = new Login();
+        show.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnBuyPMActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,13 +387,88 @@ public class HomeScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Billboard;
+    private javax.swing.JLabel GenreSala1;
+    private javax.swing.JLabel GenreSala2;
+    private javax.swing.JLabel GenreSala3;
+    private javax.swing.JLabel GenreSala4;
     private javax.swing.JLabel Gray;
+    private javax.swing.JLabel HourAftSala1;
+    private javax.swing.JLabel HourAftSala2;
+    private javax.swing.JLabel HourAftSala3;
+    private javax.swing.JLabel HourAftSala4;
+    private javax.swing.JLabel HourMorSala1;
+    private javax.swing.JLabel HourMorSala2;
+    private javax.swing.JLabel HourMorSala3;
+    private javax.swing.JLabel HourMorSala4;
+    private javax.swing.JLabel HourNigSala1;
+    private javax.swing.JLabel HourNigSala2;
+    private javax.swing.JLabel HourNigSala3;
+    private javax.swing.JLabel HourNigSala4;
+    private javax.swing.JLabel ImageSala1;
+    private javax.swing.JLabel ImageSala2;
+    private javax.swing.JLabel ImageSala3;
+    private javax.swing.JLabel ImageSala4;
+    private javax.swing.JLabel NameSala1;
+    private javax.swing.JLabel NameSala2;
+    private javax.swing.JLabel NameSala3;
+    private javax.swing.JLabel NameSala4;
     private javax.swing.JLabel Prices;
     private javax.swing.JLabel RoomsBackground;
+    private javax.swing.JLabel TypeSala1;
+    private javax.swing.JLabel TypeSala2;
+    private javax.swing.JLabel TypeSala3;
+    private javax.swing.JLabel TypeSala4;
+    private javax.swing.JButton btnBuy2DMovie1;
+    private javax.swing.JButton btnBuy2DMovie2;
+    private javax.swing.JButton btnBuy3DMovie;
+    private javax.swing.JButton btnBuyPM;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegister;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
+    private void loadCinema() {
+        NameSala1.setText(Utilities.name2DMovie1);
+        HourMorSala1.setText(Utilities.hourMor2DMovie1);
+        HourAftSala1.setText(Utilities.hourAft2DMovie1);
+        HourNigSala1.setText(Utilities.hourNig2DMovie1);
+        GenreSala1.setText(Utilities.genre2DMovie1);
+        TypeSala1.setText(Utilities.type2DMovie1);
+        Icon image2DMovie1 = new ImageIcon(Utilities.image2DMovie1.getImage().getScaledInstance(ImageSala1.getWidth(), ImageSala1.getHeight(), Image.SCALE_DEFAULT));
+        ImageSala1.setIcon(image2DMovie1);
+        
+        NameSala2.setText(Utilities.name2DMovie2);
+        HourMorSala2.setText(Utilities.hourMor2DMovie2);
+        HourAftSala2.setText(Utilities.hourAft2DMovie2);
+        HourNigSala2.setText(Utilities.hourNig2DMovie2);
+        GenreSala2.setText(Utilities.genre2DMovie2);
+        TypeSala2.setText(Utilities.type2DMovie2);
+        Icon image2DMovie2 = new ImageIcon(Utilities.image2DMovie2.getImage().getScaledInstance(ImageSala2.getWidth(), ImageSala2.getHeight(), Image.SCALE_DEFAULT));
+        ImageSala2.setIcon(image2DMovie2);
+        
+        NameSala3.setText(Utilities.name3DMovie);
+        HourMorSala3.setText(Utilities.hourMor3DMovie);
+        HourAftSala3.setText(Utilities.hourAft3DMovie);
+        HourNigSala3.setText(Utilities.hourNig3DMovie);
+        GenreSala3.setText(Utilities.genre3DMovie);
+        TypeSala3.setText(Utilities.type3DMovie);
+        Icon image3DMovie = new ImageIcon(Utilities.image3DMovie.getImage().getScaledInstance(ImageSala3.getWidth(), ImageSala3.getHeight(), Image.SCALE_DEFAULT));
+        ImageSala3.setIcon(image3DMovie);
+        
+        NameSala4.setText(Utilities.namePM);
+        HourMorSala4.setText(Utilities.hourMorPM);
+        HourAftSala4.setText(Utilities.hourAftPM);
+        HourNigSala4.setText(Utilities.hourNigPM);
+        GenreSala4.setText(Utilities.genrePM);
+        TypeSala4.setText(Utilities.typePM);
+        Icon imagePM = new ImageIcon(Utilities.imagePM.getImage().getScaledInstance(ImageSala4.getWidth(), ImageSala4.getHeight(), Image.SCALE_DEFAULT));
+        ImageSala4.setIcon(imagePM);
+        
+    }
 }

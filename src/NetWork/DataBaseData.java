@@ -86,7 +86,7 @@ public class DataBaseData {
         try {
 
             connection = connect();
-            String usersData = ("SELECT Name, LastName, Email, CellPhone FROM Data WHERE UserName = '" + userName + "'");
+            String usersData = ("SELECT Name, LastName, Email, CellPhone, PopCoins, ChalaCoins FROM Data WHERE UserName = '" + userName + "'");
             PreparedStatement searchUserName = connection.prepareStatement(usersData);
             ResultSet resultSearch = searchUserName.executeQuery();
 
@@ -96,6 +96,8 @@ public class DataBaseData {
                 Customer.lastName = resultSearch.getString("LastName");
                 Customer.email = resultSearch.getString("Email");
                 Customer.cellPhone = resultSearch.getString("Cellphone");
+                Customer.popCoins = resultSearch.getString("PopCoins");
+                Customer.chalaCoins = resultSearch.getString("ChalaCoins");
                 Customer.userName = userName;
             }
             connection.close();
