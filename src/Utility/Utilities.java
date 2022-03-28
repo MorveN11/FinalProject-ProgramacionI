@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.*;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -73,15 +74,18 @@ public class Utilities {
         }
     }
 
-    public static String[] auxCreateMovie() {
-        String[] data = new String[7];
+    public static String[] auxCreateMovie(String cinema) {
+        String[] data = new String[8];
         data[0] = getString("Elija el nombre de la pelicula");
-        data[1] = getString("Ingrese la hora de la funcion de la Mañana de la pelicula");
+        data[1] = getString("Ingrese la hora de la funcion de la Madrugada de la pelicula");
         data[2] = getString("Ingrese la hora de la funcion de la Tarde de la pelicula");
         data[3] = getString("Ingrese la hora de la funcion de la Noche de la pelicula");
-        data[4] = String.valueOf(verifyInt("Ingrese las estadisticas de la pelicula"));
-        data[5] = String.valueOf(verifyDouble("Ingrese el rating de la pelicula"));
+        double rating = verifyDouble("Ingrese el rating de la pelicula");
+        int price = verifyInt("Ingrese el precio del Ticket");
+        data[4] = String.valueOf(totalStatistics(rating, price, cinema));
+        data[5] = String.valueOf(rating);
         data[6] = getString("Ingrese el genero de la pelcula");
+        data[7] = String.valueOf(price);
         return data;
     }
 
@@ -221,6 +225,19 @@ public class Utilities {
         }
     }
 
+    public static void confirmPriceMovie(String cinema, String txtGenre) {
+        String genreMovie = JOptionPane.showInputDialog(null, txtGenre, null,
+                INFORMATION_MESSAGE);
+        if (genreMovie != null) {
+            DataBaseMovie.updateInfoMovie(cinema, genreMovie, "TicketPrice");
+            JOptionPane.showMessageDialog(null, "El genero de la pelicula " +
+                    "se ha actualizado con exito!!", null, INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "No hubo cambios", null,
+                    ERROR_MESSAGE);
+        }
+    }
+
     public static void confirmNewDailyChallenge() {
         String message = JOptionPane.showInputDialog(null, "Como se llamara la " +
                 "nueva tarea diaria?", null, INFORMATION_MESSAGE);
@@ -312,7 +329,6 @@ public class Utilities {
         }
     }
 
-
     public void saveImage(String cinema) {
         try {
 
@@ -338,4 +354,47 @@ public class Utilities {
         return scanner.next();
     }
 
+    public static void showMovie(String cinema) {
+        String[] data = DataBaseMovie.showInfoMovie(cinema);
+        System.out.println(Arrays.toString(data));
+    }
+
+    public static void auxCreate2DMovie(String cinema, int numberCinema) {
+        String[] data = Utilities.auxCreateMovie("2D");
+        DataBaseMovie.create2DMovie(numberCinema, data[0], data[1], data[2], data[3], data[4],
+                data[5], data[6], data[7]);
+        Utilities saveImage = new Utilities();
+        saveImage.searchImage();
+        saveImage.saveImage(cinema);
+    }
+
+    public static void auxCreate3DMovie() {
+        String[] data = Utilities.auxCreateMovie("3D");
+        DataBaseMovie.create3DMovie(data[0], data[1], data[2], data[3], data[4], data[5],
+                data[6], data[7]);
+        Utilities saveImage = new Utilities();
+        saveImage.searchImage();
+        saveImage.saveImage("3DMovie");
+    }
+
+    public static void auxCreatePremiumMovie() {
+        String[] data = Utilities.auxCreateMovie("PremiumMovie");
+        DataBaseMovie.createPremiumMovie(data[0], data[1], data[2], data[3], data[4], data[5],
+                data[6], data[7]);
+        Utilities saveImage = new Utilities();
+        saveImage.searchImage();
+        saveImage.saveImage("PremiumMovie");
+    }
+    public static int totalStatistics(double rating, int price, String cinema) {
+        int totalEarnings, seats;
+        if (cinema.equals("2D")) {
+            seats = 36;
+        } else if (cinema.equals("3D")) {
+            seats = 64;
+        } else {
+            seats = 100;
+        }
+        totalEarnings = (((int)((rating * 10) * seats) / 100) * price);
+        return totalEarnings;
+    }
 }

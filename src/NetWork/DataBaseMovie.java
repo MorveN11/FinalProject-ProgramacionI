@@ -53,7 +53,7 @@ public class DataBaseMovie {
     }
 
     public static void create2DMovie(int cinema, String nameMovie, String hourMor, String hourAft, String hourNig,
-                                     String statistics, String rating, String genre) {
+                                     String statistics, String rating, String genre, String ticketPrice) {
 
         String cinemaDB = String.valueOf(cinema);
         String rowLetter = "A";
@@ -62,7 +62,7 @@ public class DataBaseMovie {
         Connection connection = null;
 
         String movieData = "INSERT INTO 2DMovie"+cinemaDB+" (NameMovie, HourMor, HourAft, HourNig, Statistics, Rating, Genre, " +
-                "Type, RowLetter, A, B, C, D, E, F) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "Type, TicketPrice, RowLetter, A, B, C, D, E, F) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
 
             connection = DataBaseData.connect();
@@ -77,13 +77,14 @@ public class DataBaseMovie {
                 searchMovieData.setString(6, rating);
                 searchMovieData.setString(7, genre);
                 searchMovieData.setString(8, "2D");
-                searchMovieData.setString(9, rowLetter);
-                searchMovieData.setString(10, available);
+                searchMovieData.setString(9, ticketPrice);
+                searchMovieData.setString(10, rowLetter);
                 searchMovieData.setString(11, available);
                 searchMovieData.setString(12, available);
                 searchMovieData.setString(13, available);
                 searchMovieData.setString(14, available);
                 searchMovieData.setString(15, available);
+                searchMovieData.setString(16, available);
 
                 resultSaveData = searchMovieData.executeUpdate();
 
@@ -164,15 +165,15 @@ public class DataBaseMovie {
     }
 
     public static void create3DMovie(String nameMovie, String hourMor, String hourAft, String hourNig, String statistics,
-                                     String rating, String genre) {
+                                     String rating, String genre, String ticketPrice) {
 
         String rowLetter = "A";
         String available = "D";
         int resultSaveData;
         Connection connection = null;
 
-        String movieData = "INSERT INTO 3DMovie (NameMovie, HourMor, HourAft, HourNig, Statistics, Rating, Genre, Type, RowLetter, A, " +
-                "B, C, D, E, F, G, H) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String movieData = "INSERT INTO 3DMovie (NameMovie, HourMor, HourAft, HourNig, Statistics, Rating, Genre, Type, TicketPrice, RowLetter, A, " +
+                "B, C, D, E, F, G, H) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
 
@@ -188,8 +189,8 @@ public class DataBaseMovie {
                 searchMovieData.setString(6, rating);
                 searchMovieData.setString(7, genre);
                 searchMovieData.setString(8, "3D");
-                searchMovieData.setString(9, rowLetter);
-                searchMovieData.setString(10, available);
+                searchMovieData.setString(9, ticketPrice);
+                searchMovieData.setString(10, rowLetter);
                 searchMovieData.setString(11, available);
                 searchMovieData.setString(12, available);
                 searchMovieData.setString(13, available);
@@ -197,6 +198,7 @@ public class DataBaseMovie {
                 searchMovieData.setString(15, available);
                 searchMovieData.setString(16, available);
                 searchMovieData.setString(17, available);
+                searchMovieData.setString(18, available);
 
                 resultSaveData = searchMovieData.executeUpdate();
                 if (resultSaveData > 0) {
@@ -277,14 +279,16 @@ public class DataBaseMovie {
     }
 
 
-    public static void createPremiumMovie(String nameMovie, String hourMor, String hourAft, String hourNig, String statistics, String rating, String genre) {
+    public static void createPremiumMovie(String nameMovie, String hourMor, String hourAft, String hourNig, String statistics,
+                                          String rating, String genre, String ticketPrice) {
 
         String rowLetter = "A";
         String available = "D";
         int resultSaveData;
         Connection connection = null;
-        String movieData = "INSERT INTO PremiumMovie (NameMovie, HourMor, HourAft, HourNig, Statistics, Rating, Genre, Type, RowLetter, A, B," +
-                "C, D, E, F, G, H, I, J) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String movieData = "INSERT INTO PremiumMovie (NameMovie, HourMor, HourAft, HourNig, Statistics, Rating, Genre, Type, " +
+                "TicketPrice, RowLetter, A, B," +
+                "C, D, E, F, G, H, I, J) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
 
@@ -300,8 +304,8 @@ public class DataBaseMovie {
                 searchMovieData.setString(6, rating);
                 searchMovieData.setString(7, genre);
                 searchMovieData.setString(8, "PremiumMovie");
-                searchMovieData.setString(9, rowLetter);
-                searchMovieData.setString(10, available);
+                searchMovieData.setString(9, ticketPrice);
+                searchMovieData.setString(10, rowLetter);
                 searchMovieData.setString(11, available);
                 searchMovieData.setString(12, available);
                 searchMovieData.setString(13, available);
@@ -311,6 +315,7 @@ public class DataBaseMovie {
                 searchMovieData.setString(17, available);
                 searchMovieData.setString(18, available);
                 searchMovieData.setString(19, available);
+                searchMovieData.setString(20, available);
 
                 resultSaveData = searchMovieData.executeUpdate();
                 if (resultSaveData > 0) {
@@ -441,8 +446,8 @@ public class DataBaseMovie {
 
         Connection connection;
 
-        String[] data = new String[8];
-        String movieData = "SELECT NameMovie, HourMor, HourAft, HourNig, Statistics, Rating, Genre, Type FROM "+cinema;
+        String[] data = new String[9];
+        String movieData = "SELECT NameMovie, HourMor, HourAft, HourNig, Statistics, Rating, Genre, Type, TicketPrice FROM "+cinema;
 
         try {
 
@@ -459,6 +464,7 @@ public class DataBaseMovie {
                 data[5] = resultSearch.getString("Rating");
                 data[6] = resultSearch.getString("Genre");
                 data[7] = resultSearch.getString("Type");
+                data[8] = resultSearch.getString("TicketPrice");
             }
             connection.close();
         }catch(SQLException e) {

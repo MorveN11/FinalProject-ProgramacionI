@@ -45,13 +45,15 @@ public class HomeScreenLoget extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        HourSala1 = new javax.swing.JLabel();
+        HourMorSala1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         BuySala1 = new javax.swing.JButton();
         NameSala1 = new javax.swing.JLabel();
         ImageSala1 = new javax.swing.JLabel();
         GenreSala1 = new javax.swing.JLabel();
-        Prices = new javax.swing.JLabel();
         RoomsBackground = new javax.swing.JLabel();
+        Prices = new javax.swing.JLabel();
         Billboard = new javax.swing.JLabel();
         Gray = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -63,26 +65,40 @@ public class HomeScreenLoget extends javax.swing.JFrame {
         setTitle("Team Tryhards 322");
         setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(null);
-        getContentPane().add(HourSala1);
-        HourSala1.setBounds(250, 240, 120, 30);
+
+        HourMorSala1.setText("a");
+        getContentPane().add(HourMorSala1);
+        HourMorSala1.setBounds(240, 220, 120, 20);
+
+        jLabel5.setText("jLabel5");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(240, 290, 110, 30);
+
+        jLabel4.setText("jLabel4");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(240, 250, 120, 30);
 
         BuySala1.setText("Comprar");
         getContentPane().add(BuySala1);
-        BuySala1.setBounds(270, 380, 100, 24);
+        BuySala1.setBounds(270, 380, 100, 22);
+
+        NameSala1.setText("a");
         getContentPane().add(NameSala1);
-        NameSala1.setBounds(250, 200, 110, 30);
+        NameSala1.setBounds(240, 190, 110, 20);
         getContentPane().add(ImageSala1);
         ImageSala1.setBounds(60, 160, 160, 240);
-        getContentPane().add(GenreSala1);
-        GenreSala1.setBounds(260, 280, 120, 30);
 
-        Prices.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Prices.jpeg"))); // NOI18N
-        getContentPane().add(Prices);
-        Prices.setBounds(0, 720, 210, 50);
+        GenreSala1.setText("a");
+        getContentPane().add(GenreSala1);
+        GenreSala1.setBounds(240, 340, 120, 20);
 
         RoomsBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RoomsBackground .jpeg"))); // NOI18N
         getContentPane().add(RoomsBackground);
         RoomsBackground.setBounds(-10, 130, 870, 630);
+
+        Prices.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Prices.jpeg"))); // NOI18N
+        getContentPane().add(Prices);
+        Prices.setBounds(0, 720, 210, 50);
 
         Billboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BillboardTop.jpeg"))); // NOI18N
         getContentPane().add(Billboard);
@@ -155,7 +171,7 @@ public class HomeScreenLoget extends javax.swing.JFrame {
     private javax.swing.JButton BuySala1;
     public javax.swing.JLabel GenreSala1;
     private javax.swing.JLabel Gray;
-    public javax.swing.JLabel HourSala1;
+    public javax.swing.JLabel HourMorSala1;
     public javax.swing.JLabel ImageSala1;
     public javax.swing.JLabel NameSala1;
     private javax.swing.JLabel Prices;
@@ -163,11 +179,13 @@ public class HomeScreenLoget extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     public javax.swing.JLabel nameShow;
     // End of variables declaration//GEN-END:variables
 
     private void load2DMovie1() {
-        java.sql.Connection connection = null;
+        java.sql.Connection connection;
         String dbMovie = "SELECT NameMovie, Hour, Genre, Image FROM 2DMovie1";
         
         try {
@@ -176,7 +194,7 @@ public class HomeScreenLoget extends javax.swing.JFrame {
             ResultSet resultSearch = searchData.executeQuery();
             if(resultSearch.next()) {
                 NameSala1.setText(resultSearch.getString("NameMovie"));
-                HourSala1.setText(resultSearch.getString("Hour"));
+                HourMorSala1.setText(resultSearch.getString("Hour"));
                 GenreSala1.setText(resultSearch.getString("Genre"));
                 Blob blob = resultSearch.getBlob("Image");
                 byte[] data = blob.getBytes(1, (int) blob.length());

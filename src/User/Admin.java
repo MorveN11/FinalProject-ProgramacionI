@@ -9,7 +9,6 @@ import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.Arrays;
 
 import static Utility.Utilities.verifyInt;
 import static javax.swing.JOptionPane.*;
@@ -24,6 +23,7 @@ public class Admin {
     public static String txtStatistics = "Que nueva estadistica tendra la pelicula?";
     public static String txtRating = "Que nuevo rating tendra la pelicula?";
     public static String txtGenre = "De que nuevo genero sera la pelicula?";
+    public static String txtPrice = "Cual sera el nuevo precio del ticket?";
     public static String menu = """
             \nElija la operacion que desea realizar\s
              1. Mostrar los usuarios de la base de datos
@@ -44,7 +44,7 @@ public class Admin {
              16. Salir de la terminal
             """;
     public static String menuCreateMovies = """
-                \n¿En que sala desea crear la pelicula?\s
+                \nEn que sala desea crear la pelicula?\s
                 1. 2DMovie1
                 2. 2DMovie2
                 3. 3DMovie
@@ -74,12 +74,13 @@ public class Admin {
     public static String menuAttributesMovies = """
                 \nQue atributo desea actualizar?\s
                  1. Nombre de la pelicula
-                 2. Hora de la Mañana de la pelicula
+                 2. Hora de la Madrugada de la pelicula
                  3. Hora de la Tarde de la pelicula
                  4. Hora de la Noche de la pelicula
                  5. Stadisticas de la pelicula
                  6. Rating de la pelicula
                  7. Genero de la pelicula
+                 8. Precio del ticket
                  """;
 
     public static void showUsers() {
@@ -171,6 +172,10 @@ public class Admin {
                                             Utilities.confirmGenreMovie("2DMovie1", txtGenre);
                                             attrCondition = false;
                                         }
+                                        case 8 -> {
+                                            Utilities.confirmPriceMovie("2DMovie1", txtPrice);
+                                            attrCondition = false;
+                                        }
                                         default -> System.out.println("Ingrese un numero de Atributo valido");
                                     }
                                     condition = false;
@@ -207,6 +212,10 @@ public class Admin {
                                         }
                                         case 7 -> {
                                             Utilities.confirmGenreMovie("2DMovie2", txtGenre);
+                                            attrCondition = false;
+                                        }
+                                        case 8 -> {
+                                            Utilities.confirmPriceMovie("2DMovie2", txtPrice);
                                             attrCondition = false;
                                         }
                                         default -> System.out.println("Ingrese un numero de Atributo valido");
@@ -247,6 +256,10 @@ public class Admin {
                                             Utilities.confirmGenreMovie("3DMovie", txtGenre);
                                             attrCondition = false;
                                         }
+                                        case 8 -> {
+                                            Utilities.confirmPriceMovie("3DMovie", txtPrice);
+                                            attrCondition = false;
+                                        }
                                         default -> System.out.println("Ingrese un numero de Atributo valido");
                                     }
                                     condition = false;
@@ -285,6 +298,10 @@ public class Admin {
                                             Utilities.confirmGenreMovie("PremiumMovie", txtGenre);
                                             attrCondition = false;
                                         }
+                                        case 8 -> {
+                                            Utilities.confirmPriceMovie("PremiumMovie", txtPrice);
+                                            attrCondition = false;
+                                        }
                                         default -> System.out.println("Ingrese un numero de Atributo valido");
                                     }
                                     condition = false;
@@ -300,23 +317,19 @@ public class Admin {
                         int option = Utilities.verifyInt(menuReadMovies);
                         switch (option) {
                             case 1 -> {
-                                String[] data = DataBaseMovie.showInfoMovie("2DMovie1");
-                                System.out.println(Arrays.toString(data));
+                                Utilities.showMovie("2DMovie1");
                                 condition = false;
                             }
                             case 2 -> {
-                                String[] data = DataBaseMovie.showInfoMovie("2DMovie2");
-                                System.out.println(Arrays.toString(data));
+                                Utilities.showMovie("2DMovie2");
                                 condition = false;
                             }
                             case 3 -> {
-                                String[] data = DataBaseMovie.showInfoMovie("3DMovie");
-                                System.out.println(Arrays.toString(data));
+                                Utilities.showMovie("3DMovie");
                                 condition = false;
                             }
                             case 4 -> {
-                                String[] data = DataBaseMovie.showInfoMovie("PremiumMovie");
-                                System.out.println(Arrays.toString(data));
+                                Utilities.showMovie("PremiumMovie");
                                 condition = false;
                             }
                             default -> System.out.println("Ingrese una sala valida");
@@ -329,41 +342,21 @@ public class Admin {
                         int option = Utilities.verifyInt(menuCreateMovies);
                         switch (option) {
                             case 1 -> {
-                                String[] data = Utilities.auxCreateMovie();
-                                DataBaseMovie.create2DMovie(1, data[0], data[1], data[2], data[3], data[4],
-                                        data[5], data[6]);
-                                Utilities saveImage = new Utilities();
-                                saveImage.searchImage();
-                                saveImage.saveImage("2DMovie1");
+                                Utilities.auxCreate2DMovie("2DMovie1", 1);
                                 condition = false;
                             }
                             case 2 -> {
-                                String[] data = Utilities.auxCreateMovie();
-                                DataBaseMovie.create2DMovie(2, data[0], data[1], data[2], data[3], data[4],
-                                        data[5], data[6]);
-                                Utilities saveImage = new Utilities();
-                                saveImage.searchImage();
-                                saveImage.saveImage("2DMovie2");
+                                Utilities.auxCreate2DMovie("2DMovie2", 2);
                                 condition = false;
                                 
                             }
                             case 3 -> {
-                                String[] data = Utilities.auxCreateMovie();
-                                DataBaseMovie.create3DMovie(data[0], data[1], data[2], data[3], data[4], data[5],
-                                        data[6]);
-                                Utilities saveImage = new Utilities();
-                                saveImage.searchImage();
-                                saveImage.saveImage("3DMovie");
+                                Utilities.auxCreate3DMovie();
                                 condition = false;
                             }
 
                             case 4 -> {
-                                String[] data = Utilities.auxCreateMovie();
-                                DataBaseMovie.createPremiumMovie(data[0], data[1], data[2], data[3], data[4], data[5],
-                                        data[6]);
-                                Utilities saveImage = new Utilities();
-                                saveImage.searchImage();
-                                saveImage.saveImage("PremiumMovie");
+                                Utilities.auxCreatePremiumMovie();
                                 condition = false;
                             }
                             default -> System.out.println("Ingrese un valor valido");
